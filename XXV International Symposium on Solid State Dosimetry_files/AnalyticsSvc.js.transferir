@@ -1,0 +1,62 @@
+﻿app.factory('analyticsRepository', function ($resource, $http) {
+  return {
+
+    analyticsHotsite: function (model, token) {
+      $http({
+        url: 'https://analytics-api.even3.com/api/hotsiteanalytic/create',
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        data: JSON.stringify(model)
+      })   
+    },
+    analyticsCheckout: function (model, token) {
+      $http({
+        url: 'https://analytics-api.even3.com/api/checkoutanalytic/create',
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        data: JSON.stringify(model)
+      })
+    },
+    analyticsStream: function (model, token) {
+      $http({
+        url: 'https://analytics-api.even3.com/api/streamanalytics/create',
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        data: JSON.stringify(model)
+      })   
+    },
+    analyticsListPopularEvents: function (model, token) {
+      $http({
+        url: 'https://analytics-api.even3.com/api/popular',
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        data: JSON.stringify(model)
+      })
+    },
+    analyticsListLastViews: function (model, token) {
+      $http({
+        url: 'https://analytics-api.even3.com/api/popular/lastviews',
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        data: JSON.stringify(model)
+      }).then(function (res) {
+
+      })
+    }
+  }
+});

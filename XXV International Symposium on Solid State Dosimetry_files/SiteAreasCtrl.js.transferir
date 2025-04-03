@@ -1,0 +1,422 @@
+﻿app.controller('AreaSiteInscricoesController', function ($scope, $filter, siteRepository, $sce, $translate) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.areaSiteEvento = viewModelInscricao;
+  $scope.viewModel.afiliadoInscricao = getParameterByName('a') || getParameterByName('ca') || getParameterByName('_ev3ac') || '';
+
+  $scope.carregandoGerarCheckout = false;
+
+  $scope.temCupomAplicado = function () {
+    var cupomDesconto = getParameterByName('cp');
+    if (cupomDesconto != null) {
+      var aplicouCupom = false;
+      $scope.areaSiteEvento.jsonObj.forEach(function (item) {
+        if (item.ingressoPrecoAtual.aplicouCupom) {
+          aplicouCupom = true;
+        }
+      })
+      if (!aplicouCupom)
+        $scope.erroMensagemCupom = "Erro";
+    }
+    return aplicouCupom;
+  }
+
+  $scope.inseriuQuantidadeEntrada = function (entradas) {
+    let filtrado = $scope.entradasComQuantidade(entradas);
+    return filtrado != null && filtrado.length > 0;
+  }
+  $scope.entradasComQuantidade = function (entradas) {
+    return $filter('filter')(entradas, function (item) { return item.quantidade > 0; });
+  }
+  $scope.isAntesDoPrazo = function (entrada) {
+    return new Date(entrada.validoDe) > Date.now();
+  }
+  $scope.isDepoisDoPrazo = function (entrada) {
+    return new Date(entrada.validoAte) < Date.now();
+  }
+  $scope.valorTotalInscricao = function (entradas) {
+
+    let total = 0;
+    for (let index in entradas) {
+      if (entradas[index].quantidade > 0 && entradas[index].ingressoPrecoAtual != null) {
+        if (entradas[index].ingressoPrecoAtual.aplicouCupom) {
+          total += entradas[index].quantidade * entradas[index].ingressoPrecoAtual.valorComDesconto;
+        } else {
+          total += entradas[index].quantidade * entradas[index].ingressoPrecoAtual.valor;
+        }
+      }
+    }
+    return total;
+  }
+
+  $scope.temInscricaoDoacao = function (entradas) {
+    var temDoacao = $filter('filter')(entradas, function (item) { return item.doacao && item.quantidade > 0 });
+    return temDoacao.length > 0;
+  }
+  $scope.chegouQuantidadeMaxima = function (entrada) {
+    let status = false;
+    if (entrada.tipoQuantidadeEntrada == 'unica' || entrada.tipoQuantidadeEntrada == 'maisdeum') {
+      status = entrada.quantidade == entrada.quantidadeMaxima;
+    } else if (entrada.tipoQuantidadeEntrada == 'porgrupo') {
+      status = entrada.quantidade + entrada.quantidadeMaximaCompra > entrada.quantidadeMaxima;
+    }
+    return status;
+  }
+  $scope.alterarQuantidadeEntrada = function (entrada, isAdicionar) {
+
+    entrada.msgQuantidadeEntrada = "";
+
+    //Logica de comar o botao mais e menos
+    if (isAdicionar) {
+
+      let quantidadeParaAdicionar = entrada.quantidade + entrada.quantidadeMinimaCompra;
+
+      if (entrada.vagasDisponiveis && quantidadeParaAdicionar > entrada.vagasDisponiveis) {
+        entrada.msgQuantidadeEntrada = "Disponibilidade de vagas atingida";
+      }
+      else if (quantidadeParaAdicionar > entrada.quantidadeMaximaCompra) {
+        entrada.msgQuantidadeEntrada = "Limite máximo atingido";
+      }
+      else {
+        entrada.quantidade = quantidadeParaAdicionar;
+      }
+
+    }
+    else {
+      if (entrada.quantidade <= 0) {
+        entrada.quantidade = 0;
+      } else {
+        entrada.quantidade -= entrada.quantidadeMinimaCompra;
+      }
+    }
+  }
+  $scope.exibirBotalInscricao = function (entradas) {
+    var itens = $filter('filter')(entradas, function (item) { return item.controleLabelCaixa.ingressoDisponivel == true; });
+    return itens != null && itens.length > 0;
+  }
+  $scope.apenasGratis = function (listaEntradas) {
+    for (i in listaEntradas) {
+      var itens = $filter('filter')(listaEntradas[i].valores, function (item) { return item.valorTotal > 0; });
+      if (itens != null && itens.length > 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+  $scope.apenasUmaEntrada = function (listaEntradas) {
+    if (listaEntradas.length == 1 && listaEntradas[0].tipoQuantidadeEntrada == 'unica') {
+      listaEntradas[0].quantidade = 1;
+      return true;
+    }
+    return false;
+  }
+  $scope.carregandoCheckout = false;
+  $scope.ordemPorDataEstrangeira = function (atividade) {
+    var dataSplit = atividade.dataInicio.split('/')
+    var dataInicio = dataSplit.reverse().join('-');
+    var horaInicio = atividade.horaInicio;
+    var dateTimeString = dataInicio + ' ' + horaInicio;
+    var date = new Date(dateTimeString);
+    return date;
+  }
+  $scope.ordemPorHoraInicio = function (atividade) {
+    var amPmHoraIncio = atividade.horaInicio.split(' ');
+    if (amPmHoraIncio.indexOf('AM') != -1 || amPmHoraIncio.indexOf('PM') != -1) {
+      amPmHoraIncio = $scope.converterPara24Horas(atividade.horaInicio);
+      return amPmHoraIncio;
+    }
+    return atividade.horaInicio;
+  };
+  $scope.ordemPorHoraFim = function (atividade) {
+    var amPmHoraFim = atividade.horaFim.split(' ');
+    if (amPmHoraFim.indexOf('AM') != -1 || amPmHoraFim.indexOf('PM') != -1) {
+      amPmHoraFim = $scope.converterPara24Horas(atividade.horaFim);
+      return amPmHoraFim;
+    }
+    return atividade.horaFim;
+  };
+  $scope.converterPara24Horas = function (time) {
+    var hours = parseInt(time.substr(0, 2));
+    if (time.indexOf('AM') != -1 && hours == 12) {
+      time = time.replace('12', '0');
+    } if (time.indexOf('PM') != -1 && hours < 12) {
+      time = time.replace(hours, (hours + 12));
+    } time = time.replace(':', '').trim();
+    return parseInt(time.replace(/(AM|PM)/, ''));
+  }
+
+  $scope.existeEntradaPaga = function (listaIngresso) {
+    //var entradaPaga = false;
+    for (var i = 0; i < listaIngresso.length; i++) {
+      var ingresso = listaIngresso[i];
+
+      for (var j = 0; j < ingresso.valores.length; j++) {
+        var valorIngresso = ingresso.valores[j];
+        if (valorIngresso.valor != 0) {
+          return true;
+        }
+      }
+    }
+  }
+
+  $scope.gerarCheckout = function (listaIngresso) {
+    $scope.erroMensagem = null;
+    $scope.carregandoGerarCheckout = true;
+    $scope.erroMensagemCupom = null;
+
+    var model = {
+      listaIngresso: $scope.entradasComQuantidade(listaIngresso),
+      idEvento: $scope.viewModel.evento.id,
+      urlRetornocheckout: '',
+      idPessoaLogada: null,
+      afiliadoInscricao: $scope.viewModel.afiliadoInscricao,
+      lang: getLanguageQueryString(),
+      cupomDeDesconto: getParameterByName('cp'),
+      queryString: $scope.viewModel.queryString,
+      referer: $scope.viewModel.referer
+    };
+
+    if ($scope.existeEntradaPaga(model.listaIngresso)) {
+      /*FB: Adicionar ao carrinho*/
+      try { fbq('track', 'AddToCart'); } catch (err) { }
+    }
+
+    siteRepository.gerarCheckout(model).$promise.then(
+      function (response) {
+        if (response.IsValid) {
+          window.location = response.Url;
+        } else {
+
+          if (response.Message == "Error") {
+            $scope.erroMensagem = "Algo inesperado aconteceu. Favor tentar novamente.";
+            window.location = window.location;
+          } else {
+            $scope.erroMensagem = response.Message;
+            $scope.carregandoGerarCheckout = false;
+          }
+        }
+      },
+      function () {
+        $scope.erroMensagem = "Algo inesperado aconteceu. Atualize a página e tente novamente.";
+        $scope.carregandoGerarCheckout = false;
+      }
+    );
+  };
+
+  $scope.validacaoBlackFriday = (item) => {
+    //var tituloFinal = item.titulo;
+    const ehIngressoBlackFriday = /black friday/i.test(item.titulo);
+    if (ehIngressoBlackFriday && item.ingressoPrecoAtual.aplicouCupom) {
+      item.exibeAderecoBlackFriday = true;
+      //tituloFinal = item.titulo.replace(/black friday/i, "");
+    }
+
+    return item.titulo;
+  }
+
+  $scope.carregaMensagemPPP = () => {
+    var mensagem = $scope.viewModel.paridadeDeCompra.mensagemParidadeCompra;
+    mensagem = mensagem
+      .replace("{{nomePais}}", $scope.viewModel.paridadeDeCompra.pais.denominacao)
+      .replace("{{urlImagem}}", $scope.viewModel.paridadeDeCompra.pais.urlImagem)
+      .replace("{{codigoCupom}}", $scope.viewModel.paridadeDeCompra.cupomDesconto.codigo)
+      .replace("{{linkCupom}}", $scope.viewModel.paridadeDeCompra.linkComCupom)
+      .replace("{{porcentagemCupom}}", $scope.viewModel.paridadeDeCompra.cupomDesconto.descontoPorcentagem)
+
+    $scope.exibeMensagemPPP = $translate.instant(mensagem)
+
+    return $scope.trustAsHtml($scope.exibeMensagemPPP);
+
+  }
+
+  $scope.trustAsHtml = function (text) {
+    return $sce.trustAsHtml(text);
+  }
+});
+
+app.controller('AreaSiteAtividadesController', function ($scope, $uibModal, siteRepository) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.areaSiteEvento = viewModelAtividades;
+
+  $scope.abrirModalAtividade = function (item) {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'modalAtividade.html',
+      controller: 'ModalAtividadeCtrl',
+      resolve: {
+        item: function () {
+          return item;
+        },
+        cultura: function () {
+          return $scope.viewModel.evento.cultura;
+        },
+        habilitarHtmlModalAtividade: function () {
+          return $scope.viewModel.habilitarHtmlModalAtividade;
+        }
+      }
+    });
+  }
+});
+
+app.controller('AreaSitePalestrantesController', function ($scope, $uibModal, siteRepository, $filter) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.qtdPalestrantes = 12;
+  $scope.areaSiteEvento = viewModelPalestrantes
+
+  $scope.abrirModalPalestrante = function (item) {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'modalPalestrante.html',
+      controller: 'ModalPalestranteCtrl',
+      resolve: {
+        item: function () {
+          return item;
+        }
+      }
+    });
+  }
+});
+
+app.controller('AreaSiteSubmissoesController', function ($scope, siteRepository) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.areaSiteEvento = viewModelSubmissao;
+  $scope.qtdExibicaoSubmissaoAreaTematica = 5;
+});
+
+app.controller('AreaSiteLocalController', function ($scope, siteRepository) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.areaSiteEvento = viewModelLocal;
+});
+
+app.controller('AreaSiteInteresseController', function ($scope, siteRepository) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.areaSiteEvento = viewModelSubmissao;
+
+  $scope.lead = {
+    nome: '',
+    email: '',
+    reCaptcha: null,
+    urlEvento: $scope.viewModel.evento.url,
+    ehEmpresaDominioProprio: $scope.viewModel.evento.ehEmpresaDominioProprio
+  }
+
+  $scope.rodarScriptCaptcha = function (value) {
+    if (value.length > 0) {
+      const node = document.createElement('script');
+      node.src = 'https://www.google.com/recaptcha/enterprise.js?hl=pt-BR'
+      node.type = 'text/javascript';
+      document.getElementsByTagName('head')[0].appendChild(node);
+    }
+  }
+
+  $scope.salvarLead = function () {
+    $scope.carregarSalvar = true;
+
+    if (!$scope.viewModel.evento.ehEmpresaDominioProprio) {
+      $scope.lead.reCaptcha = document.getElementById("hfReCaptcha").value;
+    }
+
+    siteRepository.adicionarLead($scope.lead).$promise.then(
+      function (data) {
+        if (data.IsValid) {
+          $scope.lead.nome = '';
+          $scope.lead.email = '';
+          $scope.lead.reCaptcha = null;
+          $scope.carregarSalvar = false;
+          $scope.messagemErro = false;
+          $scope.mensagemEnviadaLead = data.Message;
+        } else {
+          $scope.messagemErro = data.Message;
+          $scope.carregarSalvar = false;
+          $scope.showErro = true;
+          $scope.lead.reCaptcha = null;
+          $scope.mensagemEnviadaLead = false;
+        }
+      },
+      function (data) {
+        $scope.carregarSalvar = false;
+        $scope.showErro = true;
+        $scope.messagemErro = data.Message;
+        $scope.lead.reCaptcha = null;
+        $scope.mensagemEnviadaLead = false;
+      }
+    );
+
+  }
+
+});
+
+app.controller('AreaSitePatrocinadoresController', function ($scope, siteRepository) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.areaSiteEvento = viewModelPatrocinadores;
+});
+
+app.controller('AreaSitePerguntasFrequentesController', function ($scope, siteRepository) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.areaSiteEvento = viewModelPerguntasFrequentes;
+});
+
+app.controller('AreaSiteInfoProdutosController', function ($scope, siteRepository, $http) {
+  $scope.viewModel = siteRepository.getViewModel();
+
+  $scope.carregandoConteudosEncerrados = true;
+
+  if ($scope.viewModel.evento.ehInfoProduto) {
+    $scope.carregandoConteudosEncerrados = true;
+    $http({
+      url: '/auxiliar/retornarlistainfoprodutosporeventoorigem/',
+      method: "POST",
+      data: JSON.stringify({
+        'idEvento': $scope.viewModel.evento.id,
+      })
+    }).then(function (result) {
+      var retorno = result.data.Object;
+      $scope.listaDefaultConteudosEncerrados = retorno;
+      console.log($scope.listaDefaultConteudosEncerrados)
+      $scope.areaSiteEvento = $scope.listaDefaultConteudosEncerrados;
+
+      $scope.carregandoConteudosEncerrados = false;
+
+    }, function (response) { // optional
+      console.log("erro ao carregar", response)
+    });
+  }
+  $scope.exibirConteudosEventoEncerrado = 4;
+
+
+});
+
+app.controller('RecomendacaoEventosController', function ($scope, siteRepository, $uibModal) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.reSucess = false;
+  $scope.url = window.location.search
+
+
+  $scope.receberEmail = function () {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'modalColetarEmail.html',
+      controller: 'ModalColetarEmailCtrl',
+      resolve: {
+        emailPreenchido: function () {
+          return document.getElementById("emailReceberEvento").value
+        },
+        reSucess: function () {
+          return $scope.reSucess;
+        }
+      }
+    });
+  }
+
+  if ($scope.url.includes("re=sucess")) {
+    $scope.reSucess = true;
+    $scope.receberEmail()
+  }
+
+
+});
+
+app.controller('ModalColetarEmailCtrl', function ($scope, reSucess, emailPreenchido, $uibModalInstance) {
+  $scope.emailPreenchido = emailPreenchido;
+  $scope.reSucess = reSucess;
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+})

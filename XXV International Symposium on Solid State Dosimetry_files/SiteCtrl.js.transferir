@@ -1,0 +1,696 @@
+﻿var app = angular.module('even3', ['ui.bootstrap', 'ui.utils', 'ui.bootstrap.buttons', 'pascalprecht.translate', 'cgNotify', 'ngCookies',
+  'ngAnimate', 'ngResource', 'smart-table', 'ngSanitize', 'nemLogging', 'hm.readmore', 'ui-leaflet', 'duScroll']);
+
+
+app.run(function ($cookies, $translate) {
+
+  var langUrl = window.location.href.split("lang=")[1];
+  //var lang = language || $cookies.get('__APPLICATION_LANGUAGE') || getLanguageBrownser($window);
+
+  if (langUrl == undefined)
+    var lang = language || $cookies.get('__APPLICATION_LANGUAGE');
+  else
+    var lang = langUrl.substr(0, 2);
+
+  $cookies.put('__APPLICATION_LANGUAGE', lang);
+  $translate.use(lang);
+});
+
+app.config(function ($translateProvider, $compileProvider) {
+  //uiGmapGoogleMapApiProvider.configure({
+  //  key: 'AIzaSyCpo5WQiynTQD-hm8CRobXn9FDhEDElVpA',
+  //  v: '3',
+  //  libraries: 'geometry'
+  //});
+
+  $compileProvider.debugInfoEnabled(false);
+
+  $translateProvider.useStaticFilesLoader({
+    prefix: '/Translations/',
+    suffix: '.json?version=' + versaoFileTranslate
+  });
+
+  $translateProvider.preferredLanguage('pt');
+  $translateProvider.forceAsyncReload(true);
+});
+
+app.controller('SiteCtrl', function ($scope, $document, $uibModal, $window, notify, $translate, $filter, siteRepository, $cookies, analyticsRepository) {
+  $scope.viewModel = siteRepository.getViewModel();
+  $scope.carregandoGerarCheckout = false;
+  $scope.qtdExibicaoSubmissaoAreaTematica = 5;
+  if ($scope.viewModel.even3Analytics.ativado) {
+    analyticsRepository.analyticsHotsite($scope.viewModel.even3Analytics.content, $scope.viewModel.even3Analytics.token);
+  }
+
+  history.pushState(null, "", removeUrlParameter(window.location, "code"));
+
+  function removeUrlParameter(url, paramKey) {
+    var r = new URL(url);
+    r.searchParams.delete(paramKey);
+    return r.href;
+  }
+
+  if ($scope.viewModel.areaSiteEvento !== undefined) {
+    $scope.areaSiteEvento = $scope.viewModel.areaSiteEvento;
+  }
+
+  $scope.viewModel.afiliadoInscricao = getParameterByName('a');
+
+  $scope.temCupomAplicado = function (areaSiteEvento) {
+    var cupomDesconto = getParameterByName('cp');
+    if (cupomDesconto != null) {
+      var aplicouCupom = false;
+      areaSiteEvento.jsonObj.forEach(function (item) {
+        if (item.ingressoPrecoAtual.aplicouCupom) {
+          aplicouCupom = true;
+        }
+      })
+      if (!aplicouCupom)
+        $scope.erroMensagemCupom = "Erro";
+    }
+    return aplicouCupom;
+  }
+
+  $scope.goToInscricoes = function () {
+    var someElement = angular.element(document.getElementById('inscricoes'));
+    $document.scrollToElement(someElement, 50, 1100);
+
+    var botaoFlutuante = document.getElementById('btn-registration-floating');
+    if (botaoFlutuante != null) {
+      botaoFlutuante.style.display = 'none';
+    }
+  }
+
+  $scope.qtdPalestrantes = 12;
+  $scope.carregandoContato = false;
+  $scope.mensagemEnviada = false;
+  $scope.aceiteTermosDeUso = false;
+  $scope.mostraContato = false;
+  $scope.imagemFundo = "";
+  $scope.exibirDataFim = ($scope.viewModel.evento.diaUnico == false && $scope.viewModel.evento.dataFim != null) ? true : false;
+
+  $scope.contato = {
+    nome: null,
+    email: null,
+    mensagem: null,
+    reCaptcha: null
+  };
+
+  $scope.tiles = {
+    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    options: {
+      attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia maps</a> | Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }
+  }
+
+  $scope.centerMap = {
+    lat: parseFloat($scope.viewModel.evento.latitude),
+    lng: parseFloat($scope.viewModel.evento.logitude) + 0.01,
+    zoom: 15
+  }
+  $scope.markers = {
+    mainMarker: {
+      lat: parseFloat($scope.viewModel.evento.latitude),
+      lng: parseFloat($scope.viewModel.evento.logitude),
+      focus: true,
+      draggable: false,
+      zoom: 14
+    }
+  }
+  $scope.options = {
+    scrollWheelZoom: false,
+    zoomControl: true
+  };
+
+  $scope.mostrarContato = function () {
+
+    const node = document.createElement('script');
+    node.src = 'https://www.google.com/recaptcha/enterprise.js?hl=pt-BR'
+    node.type = 'text/javascript';
+    document.getElementsByTagName('head')[0].appendChild(node);
+
+    $scope.mostraContato = true;
+  }
+
+  $scope.enviarContato = function () {
+    var reCaptcha = document.getElementById("hfReCaptcha").value;
+    $scope.contato.reCaptcha = reCaptcha;
+    $scope.mensagemEnviada = false;
+    $scope.carregandoContato = true;
+    $scope.erroMensagem = null;
+    siteRepository.enviarContato($scope.contato, $scope.viewModel.evento.keyEvent).$promise.then(
+      function (response) {
+        if (response.IsValid) {
+          $scope.contato = {
+            nome: null,
+            email: null,
+            mensagem: null,
+            reCaptcha: null
+          };
+          $scope.aceiteTermosDeUso = false;
+          $scope.mostraContato = false;
+          $scope.carregandoContato = false;
+          $scope.mensagemEnviada = true;
+        } else {
+          $scope.erroMensagem = response.Message;
+          $scope.carregandoContato = false;
+        }
+      },
+      function () { $scope.carregandoContato = false; }
+    ).finally(function () {
+      grecaptcha.reset();
+    });
+  };
+  function insertParam(key, value) {
+    key = encodeURI(key); value = encodeURI(value);
+
+    var kvp = document.location.search.substr(1).split('&');
+
+    var i = kvp.length; var x; while (i--) {
+      x = kvp[i].split('=');
+
+      if (x[0] == key) {
+        x[1] = value;
+        kvp[i] = x.join('=');
+        break;
+      }
+    }
+
+    if (i < 0) { kvp[kvp.length] = [key, value].join('='); }
+
+    //this will reload the page, it's likely better to store this until finished
+    document.location.search = kvp.join('&');
+  }
+
+  $scope.alterarIdioma = function (lingua) {
+    insertParam('lang', lingua);
+  };
+
+  if (window.location.href.split("lang=")[1] == undefined)
+    $scope.langDropDown = language || $cookies.get('__APPLICATION_LANGUAGE') || getLanguageBrownser($window);
+  else
+    $scope.langDropDown = window.location.href.split("lang=")[1];
+
+  $scope.existeEntradaPaga = function (listaIngresso) {
+    //var entradaPaga = false;
+    for (var i = 0; i < listaIngresso.length; i++) {
+      var ingresso = listaIngresso[i];
+
+      for (var j = 0; j < ingresso.valores.length; j++) {
+        var valorIngresso = ingresso.valores[j];
+        if (valorIngresso.valor != 0) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  };
+
+  $scope.gerarCheckout = function (listaIngresso) {
+    $scope.erroMensagem = null;
+    $scope.carregandoGerarCheckout = true;
+
+    var model = {
+      listaIngresso: $scope.entradasComQuantidade(listaIngresso),
+      idEvento: $scope.viewModel.evento.id,
+      urlRetornocheckout: '',
+      idPessoaLogada: null,
+      afiliadoInscricao: $scope.viewModel.afiliadoInscricao,
+      lang: getLanguageQueryString(),
+      cupomDeDesconto: getParameterByName('cp'),
+      queryString: $scope.viewModel.queryString,
+      referer: $scope.viewModel.referer
+    };
+
+    if ($scope.existeEntradaPaga(model.listaIngresso)) {
+      /*FB: Adicionar ao carrinho*/
+      try { fbq('track', 'AddToCart'); } catch (err) { }
+    }
+
+    siteRepository.gerarCheckout(model).$promise.then(
+      function (response) {
+        if (response.IsValid) {
+          window.location = response.Url;
+        } else {
+
+          if (response.Message == "Error") {
+            $scope.erroMensagem = "Algo inesperado aconteceu. Favor tentar novamente.";
+            window.location = window.location;
+          } else {
+            $scope.erroMensagem = response.Message;
+            $scope.carregandoGerarCheckout = false;
+          }
+        }
+      },
+      function () {
+        $scope.erroMensagem = "Algo inesperado aconteceu. Atualize a página e tente novamente.";
+        $scope.carregandoGerarCheckout = false;
+      }
+    );
+  };
+
+
+  $scope.enviarContatoWhiteLabel = function () {
+    $scope.mensagemEnviada = false;
+    $scope.carregandoContato = true;
+    $scope.erroMensagem = null;
+    siteRepository.enviarContatoWhiteLabel($scope.contato, $scope.viewModel.evento.keyEvent).$promise.then(
+      function (response) {
+        if (response.IsValid) {
+          $scope.contato = null;
+          $scope.mostraContato = false;
+          $scope.carregandoContato = false;
+          $scope.mensagemEnviada = true;
+        } else {
+          $scope.erroMensagem = response.Message;
+          $scope.carregandoContato = false;
+        }
+      },
+      function () { $scope.carregandoContato = false; }
+    );
+  }
+
+  $scope.cancelarContato = function () {
+    $scope.mostraContato = false;
+    $scope.mensagemEnviada = false;
+  }
+
+  function htmlToPlaintext(text) {
+    var str = text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    return replaceAll(str, '&nbsp;', '').trim();
+  }
+
+  function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+  }
+
+  //abrir padrão
+  $scope.abrirModalPadrao = function (titulo, texto) {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'modalPadrao.html',
+      controller: 'ModalPadraoCtrl',
+      resolve: {
+        titulo: function () {
+          return titulo;
+        },
+        conteudo: function () {
+          return texto;
+        }
+      }
+    });
+  }
+
+  $scope.abrirModalAtividade = function (item) {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'modalAtividade.html',
+      controller: 'ModalAtividadeCtrl',
+      resolve: {
+        item: function () {
+          return item;
+        },
+        cultura: function () {
+          return $scope.viewModel.evento.cultura;
+        },
+        habilitarHtmlModalAtividade: function () {
+          return $scope.viewModel.habilitarHtmlModalAtividade;
+        }
+      }
+    });
+  }
+
+  $scope.abrirModalPalestrante = function (item) {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'modalPalestrante.html',
+      controller: 'ModalPalestranteCtrl',
+      resolve: {
+        item: function () {
+          return item;
+        }
+      }
+    });
+  }
+  if ($scope.viewModel.configuracaoSiteBasico) {
+
+    if ($scope.viewModel.configuracaoSiteBasico.exibirMensagemUrgente) {
+      var titulo = $scope.viewModel.configuracaoSiteBasico.tituloMensagemUrgente;
+      var conteudo = $scope.viewModel.configuracaoSiteBasico.conteudoMensagemUrgente;
+      $scope.abrirModalPadrao(titulo, conteudo);
+    }
+  }
+
+  // Inscrições
+  $scope.inseriuQuantidadeEntrada = function (entradas) {
+    let filtrado = $scope.entradasComQuantidade(entradas);
+    return filtrado != null && filtrado.length > 0;
+  }
+  $scope.entradasComQuantidade = function (entradas) {
+    return $filter('filter')(entradas, function (item) { return item.quantidade > 0; });
+  }
+  $scope.isAntesDoPrazo = function (entrada) {
+    return new Date(entrada.validoDe) > Date.now();
+  }
+
+  $scope.isDepoisDoPrazo = function (entrada) {
+    return new Date(entrada.validoAte) < Date.now();
+  }
+  $scope.valorTotalInscricao = function (entradas) {
+
+    let total = 0;
+    for (let index in entradas) {
+      if (entradas[index].quantidade > 0 && entradas[index].ingressoPrecoAtual != null) {
+        if (entradas[index].ingressoPrecoAtual.aplicouCupom) {
+          total += entradas[index].quantidade * entradas[index].ingressoPrecoAtual.valorComDesconto;
+        } else {
+          total += entradas[index].quantidade * entradas[index].ingressoPrecoAtual.valor;
+        }
+      }
+    }
+
+    return total;
+  }
+
+  $scope.temInscricaoDoacao = function (entradas) {
+    var temDoacao = $filter('filter')(entradas, function (item) { return item.doacao && item.quantidade > 0 });
+    return temDoacao.length > 0;
+  }
+
+  $scope.chegouQuantidadeMaxima = function (entrada) {
+    let status = false;
+    if (entrada.tipoQuantidadeEntrada == 'unica' || entrada.tipoQuantidadeEntrada == 'maisdeum') {
+      status = entrada.quantidade == entrada.quantidadeMaxima;
+    } else if (entrada.tipoQuantidadeEntrada == 'porgrupo') {
+      status = entrada.quantidade + entrada.quantidadeMaximaCompra > entrada.quantidadeMaxima;
+    }
+    return status;
+  }
+
+  $scope.alterarQuantidadeEntrada = function (entrada, isAdicionar) {
+
+    entrada.msgQuantidadeEntrada = "";
+
+    //Logica de comar o botao mais e menos
+    if (isAdicionar) {
+
+      let quantidadeParaAdicionar = entrada.quantidade + entrada.quantidadeMinimaCompra;
+
+      if (entrada.vagasDisponiveis && quantidadeParaAdicionar > entrada.vagasDisponiveis) {
+        entrada.msgQuantidadeEntrada = "Disponibilidade de vagas atingida";
+      }
+      else if (quantidadeParaAdicionar > entrada.quantidadeMaximaCompra) {
+        entrada.msgQuantidadeEntrada = "Limite máximo atingido";
+      }
+      else {
+        entrada.quantidade = quantidadeParaAdicionar;
+      }
+
+    }
+    else {
+      if (entrada.quantidade <= 0) {
+        entrada.quantidade = 0;
+      } else {
+        entrada.quantidade -= entrada.quantidadeMinimaCompra;
+      }
+    }
+  }
+
+  $scope.exibirBotalInscricao = function (entradas) {
+    var itens = $filter('filter')(entradas, function (item) { return item.controleLabelCaixa.ingressoDisponivel == true; });
+    return itens != null && itens.length > 0;
+  }
+
+  $scope.apenasGratis = function (listaEntradas) {
+    for (i in listaEntradas) {
+      var itens = $filter('filter')(listaEntradas[i].valores, function (item) { return item.valorTotal > 0; });
+      if (itens != null && itens.length > 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  $scope.apenasUmaEntrada = function (listaEntradas) {
+    if (listaEntradas.length == 1 && listaEntradas[0].tipoQuantidadeEntrada == 'unica') {
+      listaEntradas[0].quantidade = 1;
+      return true;
+    }
+    return false;
+  }
+
+  $scope.carregandoCheckout = false;
+
+  $scope.ordemPorDataEstrangeira = function (atividade) {
+    var dataSplit = atividade.dataInicio.split('/')
+    var dataInicio = dataSplit.reverse().join('-');
+    var horaInicio = atividade.horaInicio;
+    var dateTimeString = dataInicio + ' ' + horaInicio;
+    var date = new Date(dateTimeString);
+    return date;
+  }
+
+  $scope.ordemPorHoraInicio = function (atividade) {
+    var amPmHoraIncio = atividade.horaInicio.split(' ');
+    if (amPmHoraIncio.indexOf('AM') != -1 || amPmHoraIncio.indexOf('PM') != -1) {
+      amPmHoraIncio = $scope.converterPara24Horas(atividade.horaInicio);
+      return amPmHoraIncio;
+    }
+    return atividade.horaInicio;
+  };
+
+  $scope.ordemPorHoraFim = function (atividade) {
+    var amPmHoraFim = atividade.horaFim.split(' ');
+    if (amPmHoraFim.indexOf('AM') != -1 || amPmHoraFim.indexOf('PM') != -1) {
+      amPmHoraFim = $scope.converterPara24Horas(atividade.horaFim);
+      return amPmHoraFim;
+    }
+    return atividade.horaFim;
+  };
+
+  $scope.converterPara24Horas = function (time) {
+    var hours = parseInt(time.substr(0, 2));
+    if (time.indexOf('AM') != -1 && hours == 12) {
+      time = time.replace('12', '0');
+    } if (time.indexOf('PM') != -1 && hours < 12) {
+      time = time.replace(hours, (hours + 12));
+    } time = time.replace(':', '').trim();
+    return parseInt(time.replace(/(AM|PM)/, ''));
+  }
+
+  $scope.exibeBotaoInscricaoNoCanto = false;
+
+  $scope.acessoLiberadoAreaPrivada = false;
+
+  $scope.exibirAreaPrivada = function () {
+    if ($scope.viewModel.evento.idPrivacidadeEvento > 2 && !$scope.acessoLiberadoAreaPrivada) {
+      return true;
+    }
+    else
+      return false;
+  };
+
+
+  // Página de acesso privacidade
+  $scope.step = 1;
+  $scope.idPrivacidadeEvento = $scope.viewModel.evento.idPrivacidadeEvento;
+  $scope.senhaAcesso = '';
+  $scope.codigoAcesso = '';
+  $scope.returnErrorSenha = false;
+
+  $scope.acessarEventoSenha = function (senha) {
+    $scope.carregandoAcessoPrivate = true;
+    siteRepository.verificarSenhaAcessoEvento(senha, $scope.viewModel.evento.id).$promise.then(
+      function (response) {
+        if (response.IsValid) {
+          let url = new URL(window.location.href);
+          url.searchParams.append("code", senha);
+          window.location = url;
+        } else {
+          notify({ title: $translate.instant('Notify_Title_Atencao'), message: response.Message, classes: 'warning', log: true });
+          $scope.carregandoAcessoPrivate = false;
+        }
+      },
+      function () {
+        notify({ title: $translate.instant('Error'), message: response.Message, classes: 'danger', log: true });
+        $scope.carregandoAcessoPrivate = false;
+      }
+    );
+  }
+  $scope.enviarCodigoNoEmail = function (email) {
+    $scope.carregandoAcessoPrivateCodigo = true;
+    $scope.email = email;
+    siteRepository.enviarCodigoEmail(email, $scope.viewModel.evento.id).$promise.then(
+      function (response) {
+        if (response.IsValid) {
+          $scope.carregandoAcessoPrivateCodigo = false;
+          $scope.returnErrorCodigo = false;
+          $scope.step = 2;
+          notify({ title: $translate.instant('Notify_Title_Sucesso'), message: $translate.instant('Notify_EmailEnviadoComSucesso'), classes: 'success', log: false });
+        } else {
+          $scope.carregandoAcessoPrivateCodigo = false;
+          $scope.returnErrorCodigo = true;
+          notify({ title: $translate.instant('Notify_Title_Atencao'), message: response.Message, classes: 'warning', log: false });
+        }
+      },
+      function () {
+        notify({ title: $translate.instant('Error'), message: result.Message, classes: 'danger', log: true });
+        $scope.carregandoAcessoPrivateCodigo = false;
+        $scope.returnErrorCodigo = true;
+      }
+    );
+  }
+  $scope.acessarEventoPorCodigo = function (email, codigo) {
+    var model = {
+      email: email,
+      codigo: codigo,
+      idEvento: $scope.viewModel.evento.id
+    }
+    $scope.carregandoAcessoPrivateCodigo = true;
+    siteRepository.validarCodigoLogin(model).$promise.then(
+      function (response) {
+        if (response.IsValid) {
+          $scope.returnErrorCodigo = false;
+          window.location = window.location.href;
+          //notify({ title: $translate.instant('Notify_Title_Sucesso'), message: $translate.instant('Sucesso'), classes: 'success', log: false });
+        } else {
+
+          $scope.carregandoAcessoPrivateCodigo = false;
+          $scope.returnErrorCodigo = true;
+          notify({ title: $translate.instant('Notify_Title_Atencao'), message: response.Message, classes: 'warning', log: false });
+        }
+      },
+      function () {
+        notify({ title: $translate.instant('Error'), message: response.Message, classes: 'danger', log: true });
+        $scope.carregandoAcessoPrivateCodigo = false;
+        $scope.returnErrorCodigo = true;
+      }
+    );
+  }
+
+  // Fim do código página de acesso privacidade
+
+  $scope.testeCarregamento = function (item) {
+    $scope.carregandoCarai = true
+  }
+
+  $scope.lead = {
+    nome: '',
+    email: '',
+    reCaptcha: null,
+    urlEvento: $scope.viewModel.evento.url,
+    ehEmpresaDominioProprio: $scope.viewModel.evento.ehEmpresaDominioProprio
+  }
+
+  $scope.rodarScriptCaptcha = function (value) {
+    if (value.length > 0) {
+      const node = document.createElement('script');
+      node.src = 'https://www.google.com/recaptcha/enterprise.js?hl=pt-BR'
+      node.type = 'text/javascript';
+      document.getElementsByTagName('head')[0].appendChild(node);
+    }
+  }
+
+  $scope.salvarLead = function () {
+    $scope.carregarSalvar = true;
+
+    if (!$scope.viewModel.evento.ehEmpresaDominioProprio) {
+      $scope.lead.reCaptcha = document.getElementById("hfReCaptcha").value;
+    }
+    siteRepository.adicionarLead($scope.lead).$promise.then(
+      function (data) {
+        if (data.IsValid) {
+          $scope.lead.nome = '';
+          $scope.lead.email = '';
+          $scope.lead.reCaptcha = null;
+          $scope.carregarSalvar = false;
+          $scope.messagemErro = false;
+          $scope.mensagemEnviadaLead = data.Message;
+        } else {
+          $scope.messagemErro = data.Message;
+          $scope.carregarSalvar = false;
+          $scope.showErro = true;
+          $scope.lead.reCaptcha = null;
+          $scope.mensagemEnviadaLead = false;
+        }
+      },
+      function (data) {
+        $scope.carregarSalvar = false;
+        $scope.showErro = true;
+        $scope.messagemErro = data.Message;
+        $scope.lead.reCaptcha = null;
+        $scope.mensagemEnviadaLead = false;
+      }
+    );
+
+  }
+
+  document.addEventListener('scroll', function (e) {
+    let documentHeight = document.body.scrollHeight;
+    let currentScroll = window.scrollY + window.innerHeight;
+    let botaoFlutuante = document.getElementById('btn-registration-floating');
+    let modifier = 200;
+    if (currentScroll + modifier > documentHeight && window.innerWidth < 600) {
+      botaoFlutuante.style.display = 'none';
+    }
+    else {
+      botaoFlutuante.style.display = 'block';
+    }
+  });
+
+  //Redimensionar o widget depois que o angular roda por completo
+  $scope.$evalAsync(function () {
+    setTimeout(function () {
+      if ('parentIFrame' in window) {
+        window.parentIFrame.sendMessage(document.body.offsetHeight);
+      }
+    }, 1000);
+  });
+
+});
+
+app.controller('ModalPadraoCtrl', function ($scope, $uibModalInstance, titulo, conteudo) {
+  $scope.titulo = titulo;
+  $scope.conteudo = conteudo;
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+});
+
+app.controller('ModalAtividadeCtrl', function ($scope, $uibModalInstance, $sce, item, cultura, habilitarHtmlModalAtividade) {
+  $scope.atividade = item;
+  $scope.cultura = cultura;
+  $scope.habilitarHtmlModalAtividade = habilitarHtmlModalAtividade;
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+  $scope.trustAsHtml = function (string) {
+    return $sce.trustAsHtml(string);
+  };
+});
+
+app.controller('ModalPalestranteCtrl', function ($scope, $uibModalInstance, item) {
+  $scope.palestrante = item;
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+
+});
+
+app.controller('RegisterCtrl', function ($scope, siteRepository) {
+  $scope.viewModel = siteRepository.getViewModel();
+
+});
+
+app.controller('ModalColetarEmailCtrl', function ($scope, emailPreenchido, $uibModalInstance) {
+  $scope.emailPreenchido = emailPreenchido;
+
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+})

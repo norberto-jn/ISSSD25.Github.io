@@ -1,0 +1,30 @@
+//pegar linguagem pelo navegador
+function getLanguageBrownser($window) {
+  var lang = $window.navigator.language || $window.navigator.userLanguage;
+
+  if (lang.indexOf('pt-') == -1 && lang.indexOf('en-') == -1 && lang.indexOf('es-') == -1) {
+    return 'en';
+  }
+
+  return lang.split('-')[0];
+}
+
+//pegar linguagem pela queryString
+function getLanguageQueryString() {
+  var lang = getParameterByName('lang');
+
+  if (lang != 'pt' && lang != 'en' && lang != 'es') {
+    return undefined;
+  }
+
+  return lang;
+}
+
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}

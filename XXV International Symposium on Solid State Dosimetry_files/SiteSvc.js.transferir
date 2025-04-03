@@ -1,0 +1,34 @@
+﻿app.factory('siteRepository', function ($resource) {
+  return {
+    getViewModel: function () {
+      return viewModel;
+    },
+    save: function (model) {
+      return $resource('/Evento/CorrigirEmail').save({ model: JSON.stringify(model) });
+    },
+    enviarContato: function (model, keyEvent) {
+      return $resource('/Auxiliar/ContatoOrganizadorSite').save({ model: JSON.stringify(model), keyEvent: keyEvent });
+    },
+    enviarContatoWhiteLabel: function (model, keyEvent) {
+      return $resource('/Auxiliar/ContatoOrganizadorSiteWhiteLabel').save({ model: JSON.stringify(model), keyEvent: keyEvent });
+    },
+    gerarCheckout: function (model) {
+      return $resource('/checkout/create').save({ model: JSON.stringify(model) });
+    },
+    enviarCodigoEmail: function (email, idEvento) {
+      return $resource('/evento/enviarcodigoemail').save({ email: email, idEvento: idEvento});
+    },
+    validarCodigoLogin: function (model) {
+      return $resource('/evento/validarcodigologin').save({ model: JSON.stringify(model) });
+    },
+    verificarSenhaAcessoEvento: function (senha, idEvento) {
+      return $resource('/evento/verificarsenhaacessoevento').save({ senha: senha, idEvento: idEvento });
+    },
+    adicionarLead: function (model) {
+      return $resource('/evento/adicionarlead').save({ model: JSON.stringify(model) });
+    },
+    analyticsHotsite: function (model) {
+      return $resource('/analytics/hotsite').save({ model: JSON.stringify(model) });
+    }
+  }
+});
