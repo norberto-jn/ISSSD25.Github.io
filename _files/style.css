@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
   line-height: 1.42857143;
   color: #333;
   background: #eff0f3;
@@ -845,7 +845,7 @@ btn-contato-organizador.selected {
 }
 
   .modal-pagina-evento h1, .modal-pagina-evento h2, .modal-pagina-evento h3, .modal-pagina-evento h4 {
-    font-family: 'Open Sans',serif;
+    font-family: 'Roboto Slab',serif;
   }
 
   .modal-pagina-evento .modal-atividade .titulo {
@@ -946,7 +946,7 @@ hm-read-more a {
 }
 
 .modal-pagina-evento .modal-atividade .palestrantes .media .label.label-default {
-  font-family: 'Open Sans', serif;
+  font-family: 'Roboto Slab', serif;
   font-weight: 300;
   padding: 2px 8px;
   background: #666;
@@ -1255,7 +1255,7 @@ a.nav-link {
 
 .dropdown-menu > li > a.icone-pais {
   margin-left: 10px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
   font-size: 12px;
   margin: 0;
   padding: 10px 15px 0 15px;
@@ -1263,7 +1263,7 @@ a.nav-link {
 
   .dropdown-menu > li > a.icone-pais.margin-last {
     margin-left: 10px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Slab', sans-serif;
     font-size: 12px;
     margin: 0 0 8px 0;
     padding: 10px 15px 0 15px;
