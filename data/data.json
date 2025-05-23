@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "nome": "Profa. Dra. Silvina Paola Gómez Martínez",
+        "avatar": "https://i.pravatar.cc/300?img=1",
+        "descricao": "Possui Bacharelado em Física pela Universidade Estadual de Ponta Grossa (2005), mestrado em Ciências (área de concentração em Física) pela Universidade Estadual de Ponta Grossa (2008) e Doutorado em Física Ambiental pela Universidade Federal de Mato Grosso. Atualmente é professor adjunto da Universidade Federal do Amazonas (UFAM). Tem experiência na área de Física e Física Ambiental, atuando principalmente nos seguintes temas: gráficos de recorrência e reconstrução de atratores, séries temporais, alometria, sensoriamento remoto, conforto térmico, ensino de física e uso de TICs na educação.",
+        "linkedin": "https://linkedin.com",
+        "lattes": "http://lattes.cnpq.br"
+    },
+    {
+        "id": 2,
+        "nome": "Prof. Dr. Carlos Eduardo Lima",
+        "avatar": "https://i.pravatar.cc/300?img=2",
+        "descricao": "Designer UX/UI especializado em interfaces acessíveis.",
+        "linkedin": "https://linkedin.com"
+    },
+    {
+        "id": 3,
+        "nome": "Profa. Dra. Ana Carolina Santos",
+        "avatar": "https://i.pravatar.cc/300?img=3",
+        "descricao": "Product Manager com foco em metodologias ágeis.",
+        "lattes": "http://lattes.cnpq.br"
+    },
+    {
+        "id": 4,
+        "nome": "Prof. Dr. Rodrigo Fernandes",
+        "avatar": "https://i.pravatar.cc/300?img=4",
+        "descricao": "Especialista em marketing digital e growth hacking."
+    },
+    {
+        "id": 5,
+        "nome": "Profa. Dra. Juliana Almeida",
+        "avatar": "https://i.pravatar.cc/300?img=5",
+        "descricao": "Desenvolvedora backend com expertise em Node.js.",
+        "linkedin": "https://linkedin.com",
+        "lattes": "http://lattes.cnpq.br"
+    },
+    {
+        "id": 6,
+        "nome": "Prof. Dr. Marcelo Costa",
+        "avatar": "https://i.pravatar.cc/300?img=6",
+        "descricao": "Cientista de dados e especialista em machine learning.",
+        "linkedin": "https://linkedin.com"
+    }
+]
