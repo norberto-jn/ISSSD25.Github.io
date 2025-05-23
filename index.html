@@ -171,7 +171,6 @@
   <meta name="theme-color" content="#ffffff">
 
 
-
   <style>
     /* bootstrap critical css inline */
     .navbar-nav .open .dropdown-menu>li>a,
@@ -792,6 +791,72 @@
       font-size: 13px !important;
     }
   </style>
+
+  <style>
+    /* Menu Fixo - Versão com Mais Espaçamento */
+    .nav-container {
+      height: 60px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;/*#1F3748*/
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* Aumentei o padding horizontal para mais espaçamento */
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 0 2.5rem;
+      /* Aumentado de 1.5rem para 2.5rem */
+      display: flex;
+      align-items: center;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    /* Separador com espaçamento proporcional */
+    .nav-separator {
+      color: #999;
+      font-weight: normal;
+      padding: 0 0.5rem;
+      /* Aumentado de 0.2rem para 0.5rem */
+      display: flex;
+      align-items: center;
+      height: 100%;
+      font-size: 1.2em;
+      /* Separador um pouco maior */
+    }
+
+    .nav-link:hover {
+      color: #0066cc;
+      background-color: rgba(0, 0, 0, 0.03);
+      transform: translateY(-2px);
+      /* Efeito sutil de elevação */
+    }
+  </style>
+
+
   <script>
     var versaoFileTranslate = '052361ff-a91b-43d4-88c7-319a7f49712b';
     var language = 'en';
@@ -923,7 +988,25 @@
     </div>
   </div>
 
-  <div class="container imagem-capa-wrapper">
+  <nav class="nav-container">
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="#home" class="nav-link">HOME</a></li>
+      <li class="nav-item nav-separator">|</li>
+      <li class="nav-item"><a href="#abstracts" class="nav-link">ABSTRACTS (ONLINE)</a></li>
+      <li class="nav-item nav-separator">|</li>
+      <li class="nav-item"><a href="#panelists" class="nav-link">PANELISTS</a></li>
+      <li class="nav-item nav-separator">|</li>
+      <li class="nav-item"><a href="#committee" class="nav-link">COMMITTEE</a></li>
+      <li class="nav-item nav-separator">|</li>
+      <li class="nav-item"><a href="#history" class="nav-link">HISTORY</a></li>
+      <li class="nav-item nav-separator">|</li>
+      <li class="nav-item"><a href="#gallery" class="nav-link">GALLERY</a></li>
+      <li class="nav-item nav-separator">|</li>
+      <li class="nav-item"><a href="#contact" class="nav-link">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <div class="container imagem-capa-wrapper" style="margin-top: 2rem !important;">
 
     <img class="imagem-capa" alt="XXV International Symposium on Solid State Dosimetry" src="./img/banner.png">
 
@@ -1077,8 +1160,9 @@
         </div>
         <ul>
           <li><span style="font-size: 14px;">Access the submission instructions </span><a rel="nofollow"
-              href="https://github.com/ISSSD25/ISSSD25.Github.io/raw/refs/heads/main/drive/Instructions-ISSSD.pdf" target="_blank"
-              style="background-color: rgb(255, 255, 0);"><u><span style="font-size: 14px;">here</span></u></a></li>
+              href="https://github.com/ISSSD25/ISSSD25.Github.io/raw/refs/heads/main/drive/Instructions-ISSSD.pdf"
+              target="_blank" style="background-color: rgb(255, 255, 0);"><u><span
+                  style="font-size: 14px;">here</span></u></a></li>
           <li><span style="font-size: 14px;">All submissions (</span><b><span
                 style="font-size: 14px;">Abstracts</span></b><span style="font-size: 14px;"> and </span><b><span
                 style="font-size: 14px;">Full Length Paper</span></b><span style="font-size: 14px;">) will be via the
@@ -1094,7 +1178,7 @@
       </div>
 
 
-      <div class="box area tipo-area-1965977 area-1965977" id="1965977">
+      <div class="box area tipo-area-1965977 area-1965977" id="committee">
         <div class="text-center">
           <h3 class="with-subtitle separator-subtitle">Committees</h3>
           <p class="subtitle separator-subtitle"></p>
@@ -1328,8 +1412,8 @@ mso-ansi-language:PT-BR;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><spa
           <h3 class="with-subtitle separator-subtitle">Discover Belo Horizonte</h3>
           <p class="subtitle separator-subtitle"></p>
         </div>
-        <p style="text-align: center;">          
-          <div id="discover-video"></div>        
+        <p style="text-align: center;">
+        <div id="discover-video"></div>
         </p>
       </div>
       <div class="box area tipo-area-1999209 area-1999209" id="1999209" style="height: 560px;">
@@ -1338,8 +1422,8 @@ mso-ansi-language:PT-BR;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><spa
           <p class="subtitle separator-subtitle"></p>
         </div>
         <p style="text-align: center; ">
-          <div id="cdtn-video"></div>
-            <br>
+        <div id="cdtn-video"></div>
+        <br>
         </p>
       </div>
       <div class="box area tipo-area-2023869 area-2023869" id="2023869">
@@ -1464,7 +1548,7 @@ mso-ansi-language:PT-BR;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><spa
       </div>
 
 
-      <div ng-controller="SiteCtrl" class="">
+      <div ng-controller="SiteCtrl" class="" id="contact">
 
 
 
