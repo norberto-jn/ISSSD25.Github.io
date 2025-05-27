@@ -4,7 +4,7 @@ const YouTubeVideo = () => {
   return (
     <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%' }}>
       <iframe
-        src="https://www.youtube.com/embed/gWHCYQZ2m7s?si=KZX27s58nZnnJ6yA"
+        src="https://www.youtube.com/embed/d7WTPXq_A9o?si=sIgWI9tHMURQh703"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
