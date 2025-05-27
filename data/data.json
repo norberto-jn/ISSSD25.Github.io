@@ -1,45 +1,64 @@
 [
     {
         "id": 1,
+<<<<<<< HEAD
+        "nome": "DSc. Luciana Carvalheira",
+        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4708465E0",
+        "descricao": "Dr. Luciana Carvalheira is a Black Brazilian scientist and singer from Rio de Janeiro, leading pioneering projects at the Institute of Nuclear Engineering and serving as a professor and vice-coordinator in postgraduate programs for Nuclear Sciences. She co-founded startups like Magtech Brasil and Radíon, driving innovation in radiochemistry and nanomaterials. Her research spans neutron activation, medical polymers, and environmental monitoring, alongside mentoring future scientists through WiN Brasil’s Helen Khoury Program. As a member of MunaN, she advocates for the inclusion of young Black women in nuclear sciences. Honored by ALERJ for empowering women and recognized as a leader by ENAP’s LideraGOV 4.0, she embodies audacity, joy, and a relentless pursuit of scientific freedom and innovation.",
+        "linkedin": "https://www.linkedin.com/in/lucianacarvalheira/",
+        "lattes": "http://lattes.cnpq.br/7980018485257440"
+=======
         "nome": "Profa. Dra. Silvina Paola Gómez Martínez",
         "avatar": "https://i.pravatar.cc/300?img=1",
         "descricao": "Possui Bacharelado em Física pela Universidade Estadual de Ponta Grossa (2005), mestrado em Ciências (área de concentração em Física) pela Universidade Estadual de Ponta Grossa (2008) e Doutorado em Física Ambiental pela Universidade Federal de Mato Grosso. Atualmente é professor adjunto da Universidade Federal do Amazonas (UFAM). Tem experiência na área de Física e Física Ambiental, atuando principalmente nos seguintes temas: gráficos de recorrência e reconstrução de atratores, séries temporais, alometria, sensoriamento remoto, conforto térmico, ensino de física e uso de TICs na educação.",
         "linkedin": "https://linkedin.com",
-        "lattes": "http://lattes.cnpq.br"
+        "lattes": "http://lfdfasdfattes.cnpq.br"
+>>>>>>> b9f206226c151f870fbc9a01f0eea4da5c12cd3b
     },
     {
         "id": 2,
-        "nome": "Prof. Dr. Carlos Eduardo Lima",
-        "avatar": "https://i.pravatar.cc/300?img=2",
-        "descricao": "Designer UX/UI especializado em interfaces acessíveis.",
-        "linkedin": "https://linkedin.com"
+        "nome": "Dr. Thiago Viana Miranda Lima",
+        "avatar": "https://media.licdn.com/dms/image/v2/C5603AQG0EcYvXKXOEA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517474636433?e=1753920000&v=beta&t=YBgFpBbgN5bnejH2kNLVCIit4F7Fbsx_XhOH9mjYCJU",
+        "descricao": "Thiago holds a BSc in Physics with Medical Physics from UFRJ and a PhD in Medical Physics from University College London. He is the chief diagnostic medical physicist at Lucerne University Hospitals (LUKS) and research physicist at Genolier Hospital. He also lectures at the University of Lucerne. He chairs the education committee of the Swiss Society of Radiobiology and Medical Physics and represents the society in EFOMP working groups. His work focuses on dosimetry, protocol optimization, radioprotection, and research in nuclear medicine and medical imaging.",
+        "linkedin": "https://www.linkedin.com/in/thiagovmlima/"
     },
     {
         "id": 3,
-        "nome": "Profa. Dra. Ana Carolina Santos",
-        "avatar": "https://i.pravatar.cc/300?img=3",
-        "descricao": "Product Manager com foco em metodologias ágeis.",
-        "lattes": "http://lattes.cnpq.br"
+        "nome": "Prof. Dr. Tarcisio P. R. de Campos",
+        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4787141P9",
+        "descricao": "Retired Full Professor from the Federal University of Minas Gerais (UFMG), currently collaborating with both UFMG and the Nuclear Technology Development Center (CDTN). He holds a degree in Engineering from UFMG, an MSc in Nuclear Engineering from UFRJ (1985), a PhD from the University of Illinois at Urbana-Champaign (1993), and a postdoctoral fellowship at MIT (1998) as a Fulbright Fellow. His expertise spans nuclear engineering, radiobiology, radiochemistry, radiotherapy, and the development of radioisotopes, simulators, and medical software. He has published extensively, holds 14 patents, and has supervised over 75 graduate theses. He has coordinated over 28 research projects and actively collaborates with national and international research institutions.",
+        "lattes": "http://lattes.cnpq.br/2004647037137301"
     },
+   
     {
         "id": 4,
-        "nome": "Prof. Dr. Rodrigo Fernandes",
-        "avatar": "https://i.pravatar.cc/300?img=4",
-        "descricao": "Especialista em marketing digital e growth hacking."
+        "nome": "Dr. Alberto Mizrahy Campos",
+        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8459462H8",
+        "descricao": "Dr. Alberto M. Campos is Postdoctoral researcher in Augsburg, Germany (2024–present), with a PhD in Mathematics from the Institute for Pure and Applied Mathematics (IMPA, 2024). He completed a research stay at Instituto Superior Técnico (IST), Lisbon (2022), holds a Master's and Bachelor's degree in Mathematics from UFMG, and a technical degree in Electrotechnics from CEFET-MG. He has served as a teaching assistant in various probability and analysis courses at IMPA and UFMG, and has presented talks at the Erdős Institute (Budapest) and the Department of Nuclear Engineering at UFMG. His research interests lie broadly in Probability Theory, with a focus on random covering problems, percolation, and random walks.",
+        "linkedin": "https://www.linkedin.com/in/alberto-mizrahy-campos-052b7220a/",
+        "lattes": "http://lattes.cnpq.br/7720855884752578"
     },
-    {
+        {
         "id": 5,
-        "nome": "Profa. Dra. Juliana Almeida",
-        "avatar": "https://i.pravatar.cc/300?img=5",
-        "descricao": "Desenvolvedora backend com expertise em Node.js.",
-        "linkedin": "https://linkedin.com",
-        "lattes": "http://lattes.cnpq.br"
+        "nome": "Prof. Dr. Bernardo Maranhão Dantas",
+        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4728643E6",
+        "descricao": "Bernardo Maranhão Dantas holds a PhD in Sciences (Biology – Nuclear Biosciences) from the State University of Rio de Janeiro (1998). He is a Senior Technologist at the Brazilian National Nuclear Energy Commission (CNEN) and a faculty member of the Graduate Program at the Institute of Radiation Protection and Dosimetry, focusing on Radiation Biophysics. He has published 87 peer-reviewed articles and has supervised numerous students across undergraduate, master’s, and doctoral levels. He has led five research and development projects and currently coordinates the CNPq-certified research group “Occupational Internal Dosimetry.",
+        "lattes": "http://lattes.cnpq.br/0217815661525599",
+        "linkedin": "https://www.linkedin.com/in/bernardo-dantas-65349925/"
     },
     {
         "id": 6,
-        "nome": "Prof. Dr. Marcelo Costa",
-        "avatar": "https://i.pravatar.cc/300?img=6",
-        "descricao": "Cientista de dados e especialista em machine learning.",
-        "linkedin": "https://linkedin.com"
+        "nome": "Chair ISSSD2025 - Prof. Dr. Bruno Melo Mendes",
+        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4765620J2",
+        "descricao": "Bruno Melo Mendes holds a Bachelor's degree in Biological Sciences and a Master's and PhD in Nuclear Science and Technology from the Federal University of Minas Gerais (UFMG). He is currently a researcher at the Nuclear Technology Development Center (CDTN/CNEN). His expertise lies in the nuclear field, with a focus on radiopharmacy, computational modeling (Monte Carlo), and internal dosimetry.",
+        "lattes": "http://lattes.cnpq.br/7016638154017973"
+    },
+   {
+        "id": 7,
+        "nome": "Chair ISSSD2025 - Profa. Dra. Telma C. F. Fonseca",
+        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4266429A3",
+        "descricao": "Adjunct Professor at the Federal University of Minas Gerais (UFMG) in the Department of Nuclear Engineering. She teaches in the PCTN and collaborates with the Graduate Program in Physics at UFMG. She holds degrees in the area of computational sciences, a Master’s in Radiation Sciences from UFMG, and a PhD in Biomedical Sciences from KU Leuven (Belgium). She was a researcher at SCK-CEN in Belgium and later led the Internal Dosimetry Lab at CDTN/CNEN. Her expertise includes computational modeling, GPU-accelerated computing, internal and external dosimetry, radiobiology, and nuclear instrumentation.",
+        "lattes": "http://lattes.cnpq.br/3139727297057976",
+        "linkedin": "https://www.linkedin.com/in/c-f-fonseca-telma-90b64587"
     }
 ]
