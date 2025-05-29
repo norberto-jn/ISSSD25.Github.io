@@ -792,69 +792,7 @@
     }
   </style>
 
-  <style>
-    /* Menu Fixo - Versão com Mais Espaçamento */
-    .nav-container {
-      height: 60px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #fff;/*#1F3748*/
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
-    .nav-menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
-
-    .nav-item {
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
-
-    /* Aumentei o padding horizontal para mais espaçamento */
-    .nav-link {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-      padding: 0 2.5rem;
-      /* Aumentado de 1.5rem para 2.5rem */
-      display: flex;
-      align-items: center;
-      height: 100%;
-      transition: all 0.3s ease;
-    }
-
-    /* Separador com espaçamento proporcional */
-    .nav-separator {
-      color: #999;
-      font-weight: normal;
-      padding: 0 0.5rem;
-      /* Aumentado de 0.2rem para 0.5rem */
-      display: flex;
-      align-items: center;
-      height: 100%;
-      font-size: 1.2em;
-      /* Separador um pouco maior */
-    }
-
-    .nav-link:hover {
-      color: #0066cc;
-      background-color: rgba(0, 0, 0, 0.03);
-      transform: translateY(-2px);
-      /* Efeito sutil de elevação */
-    }
-  </style>
 
 
   <script>
@@ -988,23 +926,7 @@
     </div>
   </div>
 
-  <nav class="nav-container">
-    <ul class="nav-menu">
-      <li class="nav-item"><a href="#home" class="nav-link">HOME</a></li>
-      <li class="nav-item nav-separator">|</li>
-      <li class="nav-item"><a href="#abstracts" class="nav-link">ABSTRACTS (ONLINE)</a></li>
-      <li class="nav-item nav-separator">|</li>
-      <li class="nav-item"><a href="#panelists" class="nav-link">PANELISTS</a></li>
-      <li class="nav-item nav-separator">|</li>
-      <li class="nav-item"><a href="#committee" class="nav-link">COMMITTEE</a></li>
-      <li class="nav-item nav-separator">|</li>
-      <li class="nav-item"><a href="#history" class="nav-link">HISTORY</a></li>
-      <li class="nav-item nav-separator">|</li>
-      <li class="nav-item"><a href="#gallery" class="nav-link">GALLERY</a></li>
-      <li class="nav-item nav-separator">|</li>
-      <li class="nav-item"><a href="#contact" class="nav-link">CONTACT</a></li>
-    </ul>
-  </nav>
+  <div id="menu-container"></div>
 
   <div class="container imagem-capa-wrapper" style="margin-top: 2rem !important;">
 
@@ -1968,6 +1890,7 @@ mso-ansi-language:PT-BR;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><spa
   <script type="text/babel" src="./files/discover-video.js"></script>
   <script type="text/babel" src="./files/cdtn-video.js"></script>
   <script type="text/babel" src="./files/convidados.js"></script>
+  <script type="text/babel" src="./js/menu.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCJSH23Z6B"></script>
   <script src="./files/metrics.js"></script>
