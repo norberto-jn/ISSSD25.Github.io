@@ -1,57 +1,91 @@
 [
     {
         "id": 1,
-        "nome": "DSc. Luciana Carvalheira",
-        "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/rita.jpeg",
+        "nome": "Chair ISSSD2025 - Prof. Dr. Bruno Melo Mendes. CDTN/Comissão Nacional de Energia Nuclear, BH, MG Brasil",
+        "avatar": "bmm.jpg",
+        "descricao": "Bruno Melo Mendes holds a Bachelor's degree in Biological Sciences and a Master's and PhD in Nuclear Science and Technology from the Federal University of Minas Gerais (UFMG). He is currently a researcher at the Nuclear Technology Development Center (CDTN/CNEN). His expertise lies in the nuclear field, with a focus on radiopharmacy, computational modeling (Monte Carlo), and internal dosimetry.",
+        "lattes": "http://lattes.cnpq.br/7016638154017973"
+    },
+   {
+        "id": 2,
+        "nome": "Chair ISSSD2025 - Profa. Dra. Telma C. F. Fonseca. Federal University of Minas Gerais (UFMG) in the Department of Nuclear Engineering",
+        "avatar": "telma.jpeg",
+        "descricao": "Professor at the DEN/UFMG. She holds degrees in the area of computational sciences, a Master’s in Radiation Sciences from UFMG, and a PhD in Biomedical Sciences from KU Leuven (Belgium). She was a researcher at SCK-CEN in Belgium and later led the Internal Dosimetry Lab at CDTN/CNEN. Her expertise includes computational modeling, internal and external dosimetry, radiobiology, and nuclear instrumentation.",
+        "lattes": "http://lattes.cnpq.br/3139727297057976",
+        "linkedin": "https://www.linkedin.com/in/c-f-fonseca-telma-90b64587"
+    }
+   {
+        "id": 3,
+        "nome": "DSc. Luciana Carvalheira. Nuclear Enginnering Institute LDRAN | Laboratory for the development of radioisotopes obtained by neutron activation",
+        "avatar": "luciana.jpeg",
         "descricao": "Dr. Luciana Carvalheira is a Black Brazilian scientist and singer from Rio de Janeiro, leading pioneering projects at the Institute of Nuclear Engineering and serving as a professor and vice-coordinator in postgraduate programs for Nuclear Sciences. She co-founded startups like Magtech Brasil and Radíon, driving innovation in radiochemistry and nanomaterials. Her research spans neutron activation, medical polymers, and environmental monitoring, alongside mentoring future scientists through WiN Brasil’s Helen Khoury Program. As a member of MunaN, she advocates for the inclusion of young Black women in nuclear sciences. Honored by ALERJ for empowering women and recognized as a leader by ENAP’s LideraGOV 4.0, she embodies audacity, joy, and a relentless pursuit of scientific freedom and innovation.",
         "linkedin": "https://www.linkedin.com/in/lucianacarvalheira/",
         "lattes": "http://lattes.cnpq.br/7980018485257440"
-
     },
     {
-        "id": 2,
-        "nome": "Dr. Thiago Viana Miranda Lima",
-        "avatar": "https://media.licdn.com/dms/image/v2/C5603AQG0EcYvXKXOEA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517474636433?e=1753920000&v=beta&t=YBgFpBbgN5bnejH2kNLVCIit4F7Fbsx_XhOH9mjYCJU",
-        "descricao": "Thiago holds a BSc in Physics with Medical Physics from UFRJ and a PhD in Medical Physics from University College London. He is the chief diagnostic medical physicist at Lucerne University Hospitals (LUKS) and research physicist at Genolier Hospital. He also lectures at the University of Lucerne. He chairs the education committee of the Swiss Society of Radiobiology and Medical Physics and represents the society in EFOMP working groups. His work focuses on dosimetry, protocol optimization, radioprotection, and research in nuclear medicine and medical imaging.",
+        "id": 4,
+        "nome": "Dr. Thiago Viana Miranda Lima. Department of Radiology and Nuclear Medicine, Luzerner Kantonsspital, University Teaching and Research Hospital, University of Lucerne, Switzerland",
+        "avatar": "thiago.jpeg",
+        "descricao": "Dr. Thiago holds a BSc in Physics with Medical Physics from UFRJ and a PhD in Medical Physics from University College London. He is the chief diagnostic medical physicist at Lucerne University Hospitals (LUKS) and research physicist at Genolier Hospital. He also lectures at the University of Lucerne. He chairs the education committee of the Swiss Society of Radiobiology and Medical Physics and represents the society in EFOMP working groups. His work focuses on dosimetry, protocol optimization, radioprotection, and research in nuclear medicine and medical imaging.",
         "linkedin": "https://www.linkedin.com/in/thiagovmlima/"
     },
     {
-        "id": 3,
+        "id": 5,
         "nome": "Prof. Dr. Tarcisio P. R. de Campos",
-        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4787141P9",
+        "avatar": "tarcisio.jpeg",
         "descricao": "Retired Full Professor from the Federal University of Minas Gerais (UFMG), currently collaborating with both UFMG and the Nuclear Technology Development Center (CDTN). He holds a degree in Engineering from UFMG, an MSc in Nuclear Engineering from UFRJ (1985), a PhD from the University of Illinois at Urbana-Champaign (1993), and a postdoctoral fellowship at MIT (1998) as a Fulbright Fellow. His expertise spans nuclear engineering, radiobiology, radiochemistry, radiotherapy, and the development of radioisotopes, simulators, and medical software. He has published extensively, holds 14 patents, and has supervised over 75 graduate theses. He has coordinated over 28 research projects and actively collaborates with national and international research institutions.",
         "lattes": "http://lattes.cnpq.br/2004647037137301"
     },
-   
     {
-        "id": 4,
+        "id": 6,
         "nome": "Dr. Alberto Mizrahy Campos",
-        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8459462H8",
+        "avatar": "alberto.jpeg",
         "descricao": "Dr. Alberto M. Campos is Postdoctoral researcher in Augsburg, Germany (2024–present), with a PhD in Mathematics from the Institute for Pure and Applied Mathematics (IMPA, 2024). He completed a research stay at Instituto Superior Técnico (IST), Lisbon (2022), holds a Master's and Bachelor's degree in Mathematics from UFMG, and a technical degree in Electrotechnics from CEFET-MG. He has served as a teaching assistant in various probability and analysis courses at IMPA and UFMG, and has presented talks at the Erdős Institute (Budapest) and the Department of Nuclear Engineering at UFMG. His research interests lie broadly in Probability Theory, with a focus on random covering problems, percolation, and random walks.",
         "linkedin": "https://www.linkedin.com/in/alberto-mizrahy-campos-052b7220a/",
         "lattes": "http://lattes.cnpq.br/7720855884752578"
     },
         {
-        "id": 5,
-        "nome": "Prof. Dr. Bernardo Maranhão Dantas",
-        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4728643E6",
-        "descricao": "Bernardo Maranhão Dantas holds a PhD in Sciences (Biology – Nuclear Biosciences) from the State University of Rio de Janeiro (1998). He is a Senior Technologist at the Brazilian National Nuclear Energy Commission (CNEN) and a faculty member of the Graduate Program at the Institute of Radiation Protection and Dosimetry, focusing on Radiation Biophysics. He has published 87 peer-reviewed articles and has supervised numerous students across undergraduate, master’s, and doctoral levels. He has led five research and development projects and currently coordinates the CNPq-certified research group “Occupational Internal Dosimetry.",
+        "id": 7,
+        "nome": "Prof. Dr. Bernardo Maranhão Dantas. IRD/Comissão Nacional de Energia Nuclear e Docente Permanente do Programa de Pós Graduação do Instituto de Radioproteção e Dosimetria, RJ Brasil",
+        "avatar": "bernardo.jpeg",
+        "descricao": "Dr. Bernardo Maranhão Dantas holds a PhD in Sciences (Biology – Nuclear Biosciences) from the State University of Rio de Janeiro (1998). He is a Senior Technologist at the Brazilian National Nuclear Energy Commission (CNEN) and a faculty member of the Graduate Program at the Institute of Radiation Protection and Dosimetry, focusing on Radiation Biophysics. He has published 87 peer-reviewed articles and has supervised numerous students across undergraduate, master’s, and doctoral levels. He has led five research and development projects and currently coordinates the CNPq-certified research group “Occupational Internal Dosimetry.",
         "lattes": "http://lattes.cnpq.br/0217815661525599",
         "linkedin": "https://www.linkedin.com/in/bernardo-dantas-65349925/"
     },
-    {
-        "id": 6,
-        "nome": "Chair ISSSD2025 - Prof. Dr. Bruno Melo Mendes",
-        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4765620J2",
-        "descricao": "Bruno Melo Mendes holds a Bachelor's degree in Biological Sciences and a Master's and PhD in Nuclear Science and Technology from the Federal University of Minas Gerais (UFMG). He is currently a researcher at the Nuclear Technology Development Center (CDTN/CNEN). His expertise lies in the nuclear field, with a focus on radiopharmacy, computational modeling (Monte Carlo), and internal dosimetry.",
-        "lattes": "http://lattes.cnpq.br/7016638154017973"
+          {
+        "id": 8,
+        "nome": "Dr Richard Hugtenburg. Swansea University School of Medicine, and Department of Medical Physics and Clinical Engineering, Singleton Hospital. Swansea, United Kingdom",
+        "avatar": "RichardHugtenburg.jpg",
+        "descricao": "Dr Richard Hugtenburg is a medical physics expert and research academic at Swansea University, UK, specialising in radiotherapy physics. Dr Hugtenburg began his career in Christchurch, New Zealand, working as a medical physicist while studying for a PhD on the use of computational methods in radiation oncology. He moved to the UK in 1997 and continued to practice in radiotherapy physics; first at the Queen Elizabeth Medical Centre in Birmingham, then at Singleton Hospital in Swansea. His research examines dosimetry methods associated with emergent radiotherapy technologies, utilising Monte Carlo modelling for a diverse range of radiation physics problems, including the analysis of energy deposition in biological systems, the optimisation of dosimeters and detectors, nanoparticulates, shielding and therapy systems.",
+        "linkedin": "https://www.linkedin.com/in/richard-hugtenburg-83608b77/"
     },
-   {
-        "id": 7,
-        "nome": "Chair ISSSD2025 - Profa. Dra. Telma C. F. Fonseca",
-        "avatar": "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4266429A3",
-        "descricao": "Adjunct Professor at the Federal University of Minas Gerais (UFMG) in the Department of Nuclear Engineering. She teaches in the PCTN and collaborates with the Graduate Program in Physics at UFMG. She holds degrees in the area of computational sciences, a Master’s in Radiation Sciences from UFMG, and a PhD in Biomedical Sciences from KU Leuven (Belgium). She was a researcher at SCK-CEN in Belgium and later led the Internal Dosimetry Lab at CDTN/CNEN. Her expertise includes computational modeling, GPU-accelerated computing, internal and external dosimetry, radiobiology, and nuclear instrumentation.",
-        "lattes": "http://lattes.cnpq.br/3139727297057976",
-        "linkedin": "https://www.linkedin.com/in/c-f-fonseca-telma-90b64587"
+             {
+        "id": 9,
+        "nome": "Nicéa Barreto. Eletronuclear",
+        "avatar": "nicea.jpg",
+        "descricao": "Nicéa Barreto is Journalist | Specialist in Corporate Communication and People Management | Experience in Diversity & Inclusion | Co-creator of STEM Girl in Nuclear."
+        "linkedin": "https://www.linkedin.com/in/niceabarreto/"
+    },
+           {
+        "id": 10,
+        "nome": "Dra Silvia S Hidalgo Tobón. Coordinadora de la Especialización en Física Médica Universidad Autónoma Metropolitana – Iztapalapa",
+        "avatar": "silvia.jpg",
+        "descricao": "PhD Physicist MRI Imagenología por Resonancia Magnética.",
+        "linkedin": "https://www.linkedin.com/in/silvia-hidalgo-tobon/"
+    },
+           {
+        "id": 11,
+        "nome": "Dra. Ivonne Berenice Lozano Rojas - CICATA-Legaria",
+        "avatar": "ivonne.jpg",
+        "descricao": "Dr. Ivonne, a distinguished Mexican scientist holding a Ph.D. from CICATA-IPN, conducts pioneering research in TL/OSL dosimetry, radiation detectors, and food irradiation detection, significantly advancing medical physics and safety.",
+        "orcid": "https://orcid.org/0000-0002-8380-827X"
+    },
+              {
+        "id": 12,
+        "nome": "Dra. Alida Tamar-Gabor. ICIBNS-Romania",
+        "avatar": "alida.jpg",
+        "descricao": "Alida Timar-Gabor pioneered the applications of absolute dating methods for sediments in Romania and established and currently leads the Luminescence and Electron Spin Resonance Dating Laboratories at Babes-Bolyai University. Her main research interests are in the field of solid-state dosimetry with a focus on trapped charge dating methods and their application to geological problems. She successfully supervised over a dozen PhD students in environmental science so far. In 2015 she was awarded a European Research Council (ERC) starting grant (INTERTRAP 678106). INTERTRAP successfully carried out geochronological investigations on records of past climate change over four continents and resulted in a significant improvement in our understanding of both the potential as well as the limitations of trapped charge dating methods. Her current work sets out to developing novel provenance methods using ubiquitous minerals.",
+        "researchgate": "https://www.researchgate.net/profile/A-Timar-Gabor"
     }
-]
+ 
+ ]
