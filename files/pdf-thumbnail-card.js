@@ -120,7 +120,7 @@ const PdfViewerWithModal = ({ height = '50rem' }) => {
                     opacity: isHovering ? 1 : 0,
                     transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
                     }}>
-                    Clique para visualizar
+                    Click to view
                     </span>
                     
                     <span style={{
@@ -133,7 +133,7 @@ const PdfViewerWithModal = ({ height = '50rem' }) => {
                     opacity: isHovering ? 1 : 0,
                     transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s'
                     }}>
-                    Documento completo em alta qualidade
+                    Full document in high quality
                     </span>
                 </div>
                 
@@ -253,7 +253,7 @@ const PdfViewerWithModal = ({ height = '50rem' }) => {
                                 onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,1)'}
                                 onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.9)'}
                             >
-                                Fechar
+                                Close
                             </button>
                         </div>
                     </div>
