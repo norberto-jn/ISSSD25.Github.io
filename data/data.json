@@ -114,6 +114,13 @@
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/rita.jpeg",
     "descricao": "Dr. Rita Sebastiao",
     "linkedin": "https://www.linkedin.com/in/rita-sebastiao-1a7104246/"
+  },
+  {
+    "id": 17,
+    "nome": "Isabel Dregely. Fachhochschule Technikum Vienna, Vienna, Austria",
+    "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/isabel.jpeg",
+    "descricao": "Dr. Isabel Dregely is Head of the Competence Center for Artificial Intelligence and Data Analytics at Fachhochschule Technikum Wien. She previously served as Senior Lecturer at King's College London and was a UKRI Future Leaders Fellow. Her research background includes advanced MRI techniques, particularly in prostate and cardiovascular imaging, with postdoctoral work at UCLA and experience at the Technical University of Munich. She holds a PhD in Physics from the University of New Hampshire, where she focused on hyperpolarized xenon MRI and RF coil development. Dr. Dregely combines expertise in biomedical imaging with AI and data analytics applications.",
+    "linkedin": "https://www.linkedin.com/in/isabel-dregely-41431644/"
   }
 ]
 
