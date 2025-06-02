@@ -16,7 +16,7 @@
   },
   {
     "id": 3,
-    "nome": "Luciana Carvalheira. IEN/LDRAN",
+    "nome": "Luciana Carvalheira. IEN/LDRAN, RJ Brasil",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/luciana.jpeg",
     "descricao": "Dr. Luciana Carvalheira is a Black Brazilian scientist and singer from Rio de Janeiro, leading pioneering projects at the Institute of Nuclear Engineering and serving as a professor and vice-coordinator in postgraduate programs for Nuclear Sciences. She co-founded startups like Magtech Brasil and Radíon, driving innovation in radiochemistry and nanomaterials. Her research spans neutron activation, medical polymers, and environmental monitoring, alongside mentoring future scientists through WiN Brasil’s Helen Khoury Program. As a member of MunaN, she advocates for the inclusion of young Black women in nuclear sciences. Honored by ALERJ for empowering women and recognized as a leader by ENAP’s LideraGOV 4.0, she embodies audacity, joy, and a relentless pursuit of scientific freedom and innovation.",
     "lattes": "http://lattes.cnpq.br/7980018485257440",
@@ -31,7 +31,7 @@
   },
   {
     "id": 5,
-    "nome": "Tarcisio P. R. de Campos. DEN/UFMG and CDTN",
+    "nome": "Tarcisio P. R. de Campos. DEN/UFMG and CDTN, BH, MG, Brasil",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/tarcisio.jpeg",
     "descricao": "Dr. Tarcisio P. R. de Campos is retired full professor from the Federal University of Minas Gerais (UFMG), currently collaborating with both UFMG and the Nuclear Technology Development Center (CDTN). He holds a degree in Engineering from UFMG, an MSc in Nuclear Engineering from UFRJ, a PhD from the University of Illinois at Urbana-Champaign, and a postdoctoral fellowship at MIT as a Fulbright Fellow. His expertise spans nuclear engineering, radiobiology, radiochemistry, radiotherapy, and the development of radioisotopes, simulators, and medical software. He has published extensively, holds 14 patents, and has supervised over 75 graduate theses. He has coordinated over 28 research projects and actively collaborates with national and international research institutions.",
     "lattes": "http://lattes.cnpq.br/2004647037137301"
@@ -54,7 +54,7 @@
   },
   {
     "id": 8,
-    "nome": "Richard Hugtenburg. Associate Professor of Medical Physics. Medical Physics Swansea University, UK",
+    "nome": "Richard Hugtenburg. Associate Professor of Medical Physics. Swansea University, UK",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/RichardHugtenburg.jpg",
     "descricao": "Dr. Richard Hugtenburg is a medical physics expert and research academic at Swansea University, UK, specialising in radiotherapy physics. Dr. Hugtenburg began his career in Christchurch, New Zealand, working as a medical physicist while studying for a PhD on the use of computational methods in radiation oncology. He moved to the UK in 1997 and continued to practice in radiotherapy physics, first at the Queen Elizabeth Medical Centre in Birmingham, then at Singleton Hospital in Swansea. His research examines dosimetry methods associated with emergent radiotherapy technologies, utilising Monte Carlo modelling for a diverse range of radiation physics problems, including the analysis of energy deposition in biological systems, the optimisation of dosimeters and detectors, nanoparticulates, shielding and therapy systems.",
     "linkedin": "https://www.linkedin.com/in/richard-hugtenburg-83608b77/"
@@ -68,7 +68,7 @@
   },
   {
     "id": 10,
-    "nome": "Silvia S. Hidalgo Tobón. Coordinadora de la Especialización en Física Médica Universidad Autónoma Metropolitana – Iztapalapa",
+    "nome": "Silvia S. Hidalgo Tobón. Universidad Autónoma Metropolitana (UAM) – Iztapalapa, Mexico",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/silvia.jpg",
     "descricao": "Dr. Silvia Hidalgo earned her Bachelor's degree in Physics in 1998 from the University of the Americas-Puebla, Mexico. In 2000, she earned her Master of Science in Medical Physics from the Institute of Physics at the National Autonomous University of Mexico (the first Master of Science in Medical Physics from the UNAM program). In 2005, she earned her PhD in Physics, specializing in Magnetic Resonance Imaging from the Sir Peter Mansfield Magnetic Resonance Center at the University of Nottingham, England (Center of Nobel Prize winner in Medicine, Peter Mansfield). She completed a postdoctoral fellowship in Magnetic Resonance Imaging at the Robarts Research Institute, University of Western Ontario, Canada. She also completed a postdoctoral fellowship at the Autonomous Metropolitan University, Iztapalapa. Her scientific interests are related to advanced functional magnetic resonance imaging, neural networks applied to neuroscience, and magnetic resonance safety in daily clinical practice. She has published nationally and internationally, as well as participated in national and international conferences. She belongs to the National System of Researchers. She has taught courses and supervised theses at the undergraduate, master's, and doctoral levels in magnetic resonance imaging at the UAM, UAEM, and UNAM. She has given lectures at various national and international forums on nuclear magnetic resonance imaging. She is a member of the International Society of Magnetic Resonance in Medicine, RSNA, the Mexican Physical Society, IEEE, and the Neuroscience Society, among others.",
     "linkedin": "https://www.linkedin.com/in/silvia-hidalgo-tobon/"
@@ -89,31 +89,31 @@
   },
   {
     "id": 13,
-    "nome": "Marco A Polo Labarrios. UAM Universidad Autónoma Metropolitana",
+    "nome": "Marco A Polo Labarrios. Universidad Autónoma Metropolitana (UAM) – Iztapalapa, Mexico",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/marco.jpg",
     "descricao": "Dr. Marco Antonio Polo Labarrios holds a Ph.D. and Master’s degree in Energy Engineering from UNAM and a Bachelor’s in Energy Engineering from UAM Iztapalapa. He teaches part-time at Universidad Iberoamericana and UNAM, focusing on Transport Phenomena and Renewable Energy. His research involves the simulation of energy processes based on mass, momentum, and energy transport. He has published 21 scientific articles, participated in multiple national and international conferences, and supervised four undergraduate theses. Dr. Polo Labarrios was part of the National Commission on Nuclear Safety and has been a Level 1 member of the National System of Researchers since 2021.",
     "linkedin": "https://www.linkedin.com/in/marco-a-polo-labarrios-71883a228/"
   },
   {
     "id": 14,
-    "nome": "Marina Bicalho Silveira. CDTN/CNEN",
+    "nome": "Marina Bicalho Silveira. CDTN/CNEN, BH, MG, Brasil",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/marina.jpeg",
     "descricao": "Dr. Mariana ",
     "linkedin": "https://www.linkedin.com/in/marina-bicalho-silveira-6bb2129b/"
   },
-  {
+    {
     "id": 15,
+    "nome": "Rita Sebastiao. UFMG, BH, MG, Brasil",
+    "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/rita.jpeg",
+    "descricao": "Dr. Rita Sebastiao",
+    "linkedin": "https://www.linkedin.com/in/rita-sebastiao-1a7104246/"
+  },
+  {
+    "id": 16,
     "nome": "Ana Carolina Costa da Silva. Siemens Healthineers",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/ana.jpeg",
     "descricao": "Dr. Ana",
     "linkedin": "https://www.linkedin.com/in/ana-carolina-costa-da-silva-7b2251b8/"
-  },
-  {
-    "id": 16,
-    "nome": "Rita Sebastiao. UFMG",
-    "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/rita.jpeg",
-    "descricao": "Dr. Rita Sebastiao",
-    "linkedin": "https://www.linkedin.com/in/rita-sebastiao-1a7104246/"
   },
   {
     "id": 17,
@@ -121,6 +121,13 @@
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/isabel.jpeg",
     "descricao": "Dr. Isabel Dregely is Head of the Competence Center for Artificial Intelligence and Data Analytics at Fachhochschule Technikum Wien. She previously served as Senior Lecturer at King's College London and was a UKRI Future Leaders Fellow. Her research background includes advanced MRI techniques, particularly in prostate and cardiovascular imaging, with postdoctoral work at UCLA and experience at the Technical University of Munich. She holds a PhD in Physics from the University of New Hampshire, where she focused on hyperpolarized xenon MRI and RF coil development. Dr. Dregely combines expertise in biomedical imaging with AI and data analytics applications.",
     "linkedin": "https://www.linkedin.com/in/isabel-dregely-41431644/"
+  },
+  {
+    "id": 18,
+    "nome": "Emerson Bernardes Soares. Nuclear and Energy Research Institute - IPEN/CNEN SP, Brasil ",
+    "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/emerson.jpeg",
+    "descricao": "Dr. Emerson (Soares) Bernardes is Advocate for equality in nuclear medicine across Latin America and the Caribbean. Co-founder of LA Analítica, Strategic Advisor at IPEN, Scientific Advisor at Oncidium Foundation, and visiting researcher at Erasmus MC.",
+    "linkedin": "https://www.linkedin.com/in/emerson-bernardes-519bab32/"
   }
 ]
 
