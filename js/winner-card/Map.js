@@ -1,6 +1,212 @@
 const { useState, useEffect } = React;
 
+const PdfViewerWithModal = (props) => {
+    return (
+        <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+            backdropFilter: 'blur(8px)',
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            animation: 'fadeIn 0.3s ease-out'
+        }}>
+            <div style={{
+                width: '90%',
+                maxWidth: '1300px',
+                height: '90%',
+                backgroundColor: 'white',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
+            }}>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    padding: '16px',
+                    backgroundColor: '#f8f9fa',
+                    borderBottom: '1px solid #e9ecef'
+                }}>
+                    <button
+                        onClick={props.closeModal}
+                        style={{
+                            background: 'transparent',
+                            border: 'none',
+                            width: '40px',
+                            height: '40px',
+                            borderRadius: '50%',
+                            color: '#495057',
+                            fontSize: '24px',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transition: 'all 0.2s ease'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.05)'}
+                        onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+                    >
+                        &times;
+                    </button>
+                </div>
+
+                {/* Área do Conteúdo do Projeto */}
+                <div style={{
+                    flex: 1,
+                    padding: '20px',
+                    overflow: 'auto',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px'
+                }}>
+                    {/* Cabeçalho do Projeto */}
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '20px',
+                        marginBottom: '10px'
+                    }}>
+                        <div style={{
+                            width: '80px',
+                            height: '80px',
+                            borderRadius: '50%',
+                            overflow: 'hidden'
+                        }}>
+                            <img
+                                src={props.participant.profileImg}
+                                alt="Winner"
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover'
+                                }}
+                            />
+                        </div>
+                        <div>
+                            <h2 style={{ margin: 0, color: '#212529' }}>{props.participant.author}</h2>
+                            <p style={{ margin: '5px 0 0', color: '#495057' }}>
+                                {props.participant.project.title}
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Barra de Áudio - Ocupando 100% da largura */}
+                    <div style={{
+                        width: '100%',
+                        padding: '10px 0',
+                        backgroundColor: '#f8f9fa',
+                        borderRadius: '8px'
+                    }}>
+                        <audio
+                            controls
+                            style={{
+                                width: '100%',
+                                height: '40px'
+                            }}
+                        >
+                            <source src={`${props.participant.project.audioUrl}`} type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    {/* Área do PDF */}
+                    <div style={{
+                        flex: 1,
+                        backgroundColor: '#f8f9fa',
+                        borderRadius: '8px',
+                        padding: '20px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                        <div style={{
+                            width: '100%',
+                            height: '60rem',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            backgroundColor: 'white',
+                            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+                            borderRadius: '8px',
+                            overflow: 'hidden'
+                        }}>
+                            <iframe
+                                src={`${props.participant.project.pdfUrl}`}
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    border: 'none'
+                                }}
+                                title="PDF Viewer"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Área de Descrição */}
+                    <div style={{
+                        backgroundColor: 'white',
+                        borderRadius: '8px',
+                        padding: '20px',
+                        border: '1px solid #e9ecef'
+                    }}>
+                        <h3 style={{
+                            marginTop: 0,
+                            color: '#212529',
+                            borderBottom: '1px solid #e9ecef',
+                            paddingBottom: '10px'
+                        }}>
+                            Project Description
+                        </h3>
+                        <p style={{ color: '#495057', lineHeight: '1.6' }}>
+                            {props.participant.project.description}
+                        </p>
+                    </div>
+                </div>
+
+                {/* Rodapé do Modal */}
+                <div style={{
+                    padding: '15px 20px',
+                    backgroundColor: '#f8f9fa',
+                    borderTop: '1px solid #e9ecef',
+                    display: 'flex',
+                    justifyContent: 'flex-end'
+                }}>
+                    <button
+                        onClick={props.closeModal}
+                        style={{
+                            background: '#4263eb',
+                            color: 'white',
+                            border: 'none',
+                            padding: '10px 20px',
+                            borderRadius: '6px',
+                            cursor: 'pointer',
+                            fontWeight: '500',
+                            transition: 'all 0.2s ease'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = '#364fc7'}
+                        onMouseLeave={(e) => e.currentTarget.style.background = '#4263eb'}
+                    >
+                        Close Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+};
+
 const NonWinnerCard = (props) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <div className="row" style={{ marginTop: props.marginTop, padding: 0 }}>
             <div className="non-winner-card-glass" style={{ position: 'relative' }}>
@@ -22,25 +228,24 @@ const NonWinnerCard = (props) => {
                     <div className="winner-avatar">
                         <div className="avatar-glow"></div>
                         <img
-                            src="https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now"
-                            alt="Winner"
+                            src={props.participant.profileImg}
                         />
                     </div>
 
                     <div className="winner-info">
                         <h2>
-                            Norberto Ferreira
-                            <span className="winner-tag">#1 Champion</span>
+                            {props.participant.author}
+                            <span className="winner-tag">participant</span>
                         </h2>
 
                         <p className="winner-title">
-                            The 'Light Fingerprint' of Rubidium for Precise Atomic Clocks
+                            {props.participant.project.title}
                         </p>
 
                         <div className="winner-actions">
                             <div className="social-icons">
                                 <a
-                                    href="SEU_LINK_LINKEDIN"
+                                    href={`${props.participant.socialMedia.linkedin}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-icon"
@@ -51,7 +256,7 @@ const NonWinnerCard = (props) => {
                                 </a>
 
                                 <a
-                                    href="SEU_LINK_INSTAGRAM"
+                                    href={`${props.participant.socialMedia.instagram}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-icon"
@@ -62,7 +267,7 @@ const NonWinnerCard = (props) => {
                                 </a>
 
                                 <a
-                                    href="SEU_LINK_LATTES"
+                                    href={`${props.participant.socialMedia.website}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-icon"
@@ -74,7 +279,7 @@ const NonWinnerCard = (props) => {
                             </div>
 
                             <div className="button-group">
-                                <button className="modern-btn profile-btn">
+                                <button className="modern-btn profile-btn" onClick={openModal}>
                                     View Project
                                     <svg viewBox="0 0 24 24">
                                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
@@ -91,13 +296,20 @@ const NonWinnerCard = (props) => {
                         </div>
                     </div>
                 </div>
-
             </div>
+
+            {/* Modal */}
+            {isModalOpen && <PdfViewerWithModal closeModal={closeModal} participant={props.participant} />}
         </div>
     );
-}
+};
 
 const WinnerCard = (props) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <div
             className="row"
@@ -120,25 +332,25 @@ const WinnerCard = (props) => {
                     <div className="winner-avatar">
                         <div className="avatar-glow"></div>
                         <img
-                            src="https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now"
+                            src={props.participant.profileImg}
                             alt="Winner"
                         />
                     </div>
 
                     <div className="winner-info">
                         <h2>
-                            Norberto Ferreira
+                            {props.participant.author}
                             <span className="winner-tag">#1 Champion</span>
                         </h2>
 
                         <p className="winner-title">
-                            The 'Light Fingerprint' of Rubidium for Precise Atomic Clocks
+                            {props.participant.project.title}
                         </p>
 
                         <div className="winner-actions">
                             <div className="social-icons">
                                 <a
-                                    href="SEU_LINK_LINKEDIN"
+                                    href={`${props.participant.socialMedia.linkedin}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-icon"
@@ -149,7 +361,7 @@ const WinnerCard = (props) => {
                                     </svg>
                                 </a>
                                 <a
-                                    href="SEU_LINK_INSTAGRAM"
+                                    href={`${props.participant.socialMedia.instagram}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-icon"
@@ -160,7 +372,7 @@ const WinnerCard = (props) => {
                                     </svg>
                                 </a>
                                 <a
-                                    href="SEU_LINK_LATTES"
+                                    href={`${props.participant.socialMedia.website}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-icon"
@@ -173,7 +385,7 @@ const WinnerCard = (props) => {
                             </div>
 
                             <div className="button-group">
-                                <button className="modern-btn profile-btn">
+                                <button className="modern-btn profile-btn" onClick={openModal}>
                                     View Project
                                     <svg viewBox="0 0 24 24">
                                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
@@ -190,34 +402,102 @@ const WinnerCard = (props) => {
                         </div>
                     </div>
                 </div>
-
             </div>
+
+            {/* Modal */}
+            {isModalOpen && <PdfViewerWithModal closeModal={closeModal} participant={props.participant} />}
         </div>
     );
 }
 
-const Map = () => {
-    const dados = [
-        { name: "Norberto", "isWinner": true },
-        { name: "Norberto", "isWinner": false },
-        { name: "Norberto", "isWinner": false },
-        { name: "Norberto", "isWinner": false },
-        { name: "Norberto", "isWinner": false },
-        { name: "Norberto", "isWinner": false },
-        { name: "Norberto", "isWinner": false }
-    ]
+const BattleMap = () => {
+    const [info, setInfo] = useState({});
+    const [listKeys, setListKeys] = useState([]);
+    const [currentListIndex, setCurrentListIndex] = useState(0);
+    const [selectedList, setSelectedList] = useState('');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('../../data/project.json');
+                const data = await response.json();
+                setInfo(data);
+
+                const keys = Object.keys(data);
+                setListKeys(keys);
+                setSelectedList(keys[0] || '');
+            } catch (error) {
+                console.error("Erro ao carregar os dados:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const handleClick = (index) => {
+        setCurrentListIndex(index);
+        setSelectedList(listKeys[index]);
+    };
+
+    const currentItems = info[selectedList] || [];
+
+    if (loading) {
+        return <p style={{ textAlign: 'center', marginTop: '2rem', color: '#ccc' }}>Carregando...</p>;
+    }
+
     return (
-        dados.map((item, index) => (
-            item.isWinner ? <WinnerCard
-                key={index}
-                marginTop={index === 0 ? '9rem' : '2rem'}
-            /> : <NonWinnerCard
-                key={index}
-                marginTop={index === 0 ? '9rem' : '2rem'}
-            />
-        ))
-    )
-}
+        <div style={{ position: 'relative', minHeight: '100vh' }}>
+            <div style={{
+                marginBottom: '2rem',
+                marginTop: '9rem',
+                display: 'flex',
+                gap: '16px',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+                padding: '16px',
+            }}>
+                {listKeys.map((key, index) => (
+                    <button
+                        key={key}
+                        onClick={() => handleClick(index)}
+                        style={{
+                            padding: '16px 28px',
+                            background: index === currentListIndex
+                                ? 'linear-gradient(145deg, #6e45e2, #4a3bff)'
+                                : 'linear-gradient(145deg, #2a2a40, #1e1e30)',
+                            color: index === currentListIndex ? '#fff' : '#a0a0c0',
+                            border: 'none',
+                            borderRadius: '12px',
+                            cursor: 'pointer',
+                            fontSize: '16px',
+                            fontWeight: '700',
+                            transition: 'all 0.3s ease',
+                        }}
+                    >
+                        {key}
+                    </button>
+                ))}
+            </div>
 
-
-ReactDOM.render(<Map />, document.getElementById('map'));
+            <div style={{ padding: '20px' }}>
+                {currentItems.length === 0 ? (
+                    <p style={{ textAlign: 'center', marginTop: '2rem', color: '#ccc' }}>
+                        Nenhum participante encontrado.
+                    </p>
+                ) : (
+                    [...currentItems]
+                        .sort((a, b) => (b.isWinner === a.isWinner ? 0 : b.isWinner ? 1 : -1))
+                        .map((item, index) =>
+                            item.isWinner
+                                ? <WinnerCard key={`${selectedList}-${index}`} participant={item} marginTop={index === 0 ? '2rem' : '1rem'} />
+                                : <NonWinnerCard key={`${selectedList}-${index}`} participant={item} marginTop={index === 0 ? '2rem' : '1rem'} />
+                        )
+                )}
+            </div>
+        </div>
+    );
+};
+ReactDOM.render(<BattleMap />, document.getElementById('map'));
