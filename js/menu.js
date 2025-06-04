@@ -90,9 +90,9 @@ const NavMenu = () => {
       <ul style={styles.navMenu}>
         <li style={styles.navItem}><a href="/" style={styles.navLink}>HOME</a></li>
         <li style={styles.navSeparator}>|</li>
-        <li style={styles.navItem}><a href="/#abstracts" style={styles.navLink}>ABSTRACTS</a></li>
+        <li style={styles.navItem}><a href="/abstracts.html" style={styles.navLink}>ABSTRACTS</a></li>
         <li style={styles.navSeparator}>|</li>
-        <li style={styles.navItem}><a href="panelists.html" style={styles.navLink}>PANELISTS</a></li>
+        <li style={styles.navItem}><a href="/#panelists" style={styles.navLink}>PANELISTS</a></li>
         <li style={styles.navSeparator}>|</li>
         <li style={styles.navItem}><a href="/#committee" style={styles.navLink}>COMMITTEE</a></li>
         <li style={styles.navSeparator}>|</li>

@@ -420,7 +420,7 @@ const BattleMap = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/data/panelists.json`);
+                const response = await fetch(`https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/data/abstracts.json`);
                 const data = await response.json();
                 setInfo(data);
 
