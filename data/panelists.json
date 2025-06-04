@@ -1,25 +1,37 @@
 {
-  "Epic Challenge": [
+  {
+  "Panelists": [
     {
-      "author": "Norberto Ferreira",
-      "profileImg": "https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now",
+      "author": "Luciana Carvalheira. IEN/LDRAN, RJ Brasil",
+      "profileImg": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/luciana.jpeg",
       "socialMedia": {
-        "linkedin": "https://www.linkedin.com/in/norberto-jn",
-        "instagram": "https://www.instagram.com/isssd25",
-        "website": "https://isssd25.github.io"
+        "lattes": "http://lattes.cnpq.br/7980018485257440",
+        "linkedin": "https://www.linkedin.com/in/lucianacarvalheira/"
       },
       "project": {
-        "title": "Inovação em Sustentabilidade",
-        "description": "Projeto voltado à criação de soluções ecológicas para comunidades urbanas.",
-        "pdfUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/Koki-Mringie-BIPM_Landscape.pdf",
-        "audioUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/BIPM_Audio.mp3"
+        "title": "Neutrons, Knowledge, and New Generations: How Brazil's Argonauta Reactor is Shaping the Future of Radiochemistry and Its Impact on Global Dosimetry Challenges",
+        "description": "For over 60 years, Brazil's Argonauta research reactor has addressed hands-on education in physics and engineering of reactors, and radiochemistry. As a hub for RD&I, Argonauta drives partnerships with institutions like IME, UFRJ and startups in radiotracer technologies. Modernization efforts, including fuel improvements and new radioisotopes production, exemplify its commitment to advancing radiation science nuclear applications worldwide."
       },
-      "isWinner": true
-    }
-  ],
-  "Final Battle": [
+      "isWinner": false
+    },
     {
-      "author": "Norberto Ferreira",
+      "author": "Thiago Viana Miranda Lima. DRNM, Luzerner Kantonsspital and University of Lucerne, Switzerland",
+      "profileImg": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/thiago.jpeg",
+      "socialMedia": {
+        "linkedin": "https://www.linkedin.com/in/thiagovmlima/"
+      },
+      "project": {
+        "title": "Current and Future Trends in Nuclear Medicine Dosimetry",
+        "description": "This lecture delves into the evolution of nuclear medicine dosimetry. It will explore the progression from early rudimentary methods, which relied on basic measurements and empirical estimates, to the sophisticated imaging techniques and computational models employed today. These advancements have significantly enhanced the accuracy of absorbed dose quantification, improving both safety and efficacy in treatments. The lecture will also discuss the future of dosimetry, highlighting the integration of artificial intelligence and personalized medicine. This forward-thinking approach promises even more precise dose calculations tailored to individual patient characteristics, reflecting a continuous effort to optimize therapeutic protocols and improve patient outcomes in nuclear medicine."
+      },
+      "isWinner": false
+    }
+  ]
+}
+
+  "Courses": [
+    {
+      "author": "testes",
       "profileImg": "https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now",
       "socialMedia": {
         "linkedin": "https://www.linkedin.com/in/norberto-jn",
@@ -35,7 +47,7 @@
       "isWinner": false
     }
   ],
-  "Works 2": [
+  "Round-tables": [
     {
       "author": "Norberto Ferreira",
       "profileImg": "https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now",
