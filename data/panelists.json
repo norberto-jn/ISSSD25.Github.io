@@ -1,0 +1,88 @@
+{
+  "Epic Challenge": [
+    {
+      "author": "Norberto Ferreira",
+      "profileImg": "https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now",
+      "socialMedia": {
+        "linkedin": "https://www.linkedin.com/in/norberto-jn",
+        "instagram": "https://www.instagram.com/isssd25",
+        "website": "https://isssd25.github.io"
+      },
+      "project": {
+        "title": "Inovação em Sustentabilidade",
+        "description": "Projeto voltado à criação de soluções ecológicas para comunidades urbanas.",
+        "pdfUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/Koki-Mringie-BIPM_Landscape.pdf",
+        "audioUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/BIPM_Audio.mp3"
+      },
+      "isWinner": true
+    }
+  ],
+  "Final Battle": [
+    {
+      "author": "Norberto Ferreira",
+      "profileImg": "https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now",
+      "socialMedia": {
+        "linkedin": "https://www.linkedin.com/in/norberto-jn",
+        "instagram": "https://www.instagram.com/isssd25",
+        "website": "https://isssd25.github.io"
+      },
+      "project": {
+        "title": "Inovação em Sustentabilidade",
+        "description": "Projeto voltado à criação de soluções ecológicas para comunidades urbanas.",
+        "pdfUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/Koki-Mringie-BIPM_Landscape.pdf",
+        "audioUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/BIPM_Audio.mp3"
+      },
+      "isWinner": false
+    }
+  ],
+  "Works 2": [
+    {
+      "author": "Norberto Ferreira",
+      "profileImg": "https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now",
+      "socialMedia": {
+        "linkedin": "https://www.linkedin.com/in/norberto-jn",
+        "instagram": "https://www.instagram.com/isssd25",
+        "website": "https://isssd25.github.io"
+      },
+      "project": {
+        "title": "Inovação em Sustentabilidade",
+        "description": "Projeto voltado à criação de soluções ecológicas para comunidades urbanas.",
+        "pdfUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/Koki-Mringie-BIPM_Landscape.pdf",
+        "audioUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/BIPM_Audio.mp3"
+      },
+      "isWinner": false
+    },
+    {
+      "author": "Norberto Ferreira",
+      "profileImg": "https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now",
+      "socialMedia": {
+        "linkedin": "https://www.linkedin.com/in/norberto-jn",
+        "instagram": "https://www.instagram.com/isssd25",
+        "website": "https://isssd25.github.io"
+      },
+      "project": {
+        "title": "Inovação em Sustentabilidade",
+        "description": "Projeto voltado à criação de soluções ecológicas para comunidades urbanas.",
+        "pdfUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/Koki-Mringie-BIPM_Landscape.pdf",
+        "audioUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/BIPM_Audio.mp3"
+      },
+      "isWinner": false
+    },
+    {
+      "author": "Norberto Ferreira",
+      "profileImg": "https://media.licdn.com/dms/image/v2/D4D03AQGT7Rf7rNGzUQ/profile-displayphoto-shrink_200_200/B4DZYWYU5jHIAY-/0/1744132198407?e=1753315200&v=beta&t=k-9f5JrOzG3xgRROs6ESDf1ixyWbsQiRA84m5WE2Now",
+      "socialMedia": {
+        "linkedin": "https://www.linkedin.com/in/norberto-jn",
+        "instagram": "https://www.instagram.com/isssd25",
+        "website": "https://isssd25.github.io"
+      },
+      "project": {
+        "title": "Inovação em Sustentabilidade",
+        "description": "Projeto voltado à criação de soluções ecológicas para comunidades urbanas.",
+        "pdfUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/Koki-Mringie-BIPM_Landscape.pdf",
+        "audioUrl": "https://thebipm150.org/wp-content/uploads/formidable/12/BIPM_Audio.mp3"
+      },
+      "isWinner": false
+    }
+  ]
+}
