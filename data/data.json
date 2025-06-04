@@ -101,7 +101,7 @@
     "descricao": "Dr. Marina Bicalho Silveira is an Industrial Pharmacist (UFMG, 2007) with an M.Sc. (2010) and Ph.D. (2016) in Radiation Science & Technology (CNEN). Specialized in Radiopharmacy (SBRAFH, 2023), she works as a Senior Technologist at CDTN/CNEN, leading Quality Assurance for PET radiopharmaceutical production. Her expertise covers GMP, regulatory compliance, and R&D of novel radiopharmaceuticals, including preclinical studies. She also serves as a Professor in CDTN’s Graduate Program, bridging industry and academia.",
     "linkedin": "https://www.linkedin.com/in/marina-bicalho-silveira-6bb2129b/"
   },
-    {
+  {
     "id": 15,
     "nome": "Rita Sebastiao. UFMG, BH, MG, Brasil",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/rita.jpeg",
@@ -128,15 +128,15 @@
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/emerson.jpeg",
     "descricao": "Dr. Emerson Soares Bernardes is a pharmacist and researcher with over two decades of experience in immunology, molecular biology, and nuclear medicine. He served as Manager of the Radiopharmacy Center at the Nuclear and Energy Research Institute (IPEN), where he led pioneering projects in the development of radiopharmaceuticals. He currently holds a position as a Visiting Researcher at Erasmus Medical Center in the Netherlands, contributing to innovation initiatives and patent development. His career is distinguished by the integration of scientific research, strategic management, and entrepreneurship.",
     "linkedin": "https://www.linkedin.com/in/emerson-bernardes-519bab32/"
-  }
-   {
+  },
+  {
     "id": 19,
     "nome": "Talita de Oliveira Santos. CDTN/CNEN, BH, MG, Brasil",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/talita.jpeg",
     "descricao": "Dr. Talita de Oliveira Santos holds a degree in Radiology Technology from the Federal Center for Technological Education of Minas Gerais (2007), a master's degree in Nuclear Sciences and Techniques from the Federal University of Minas Gerais (2010) and a PhD in Nuclear Sciences and Techniques from the Federal University of Minas Gerais (2015). He is currently an adjunct professor at the Federal University of Minas Gerais and a collaborator of the National Commission for Nuclear Energy. He has experience in Physics, with an emphasis on Radiation Physics, working mainly on the following topics: natural radioactivity, application of radiation to the environment, nuclear instrumentation and radioprotection.",
     "linkedin": "https://www.linkedin.com/in/emerson-bernardes-519bab32/"
   },
-   {
+  {
     "id": 20,
     "nome": "Ricardo Gomes Passos. CDTN/CNEN, BH, MG, Brasil",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/ricardo.jpeg",
@@ -144,5 +144,3 @@
     "linkedin": "https://www.linkedin.com/in/emerson-bernardes-519bab32/"
   }
 ]
-
- 
