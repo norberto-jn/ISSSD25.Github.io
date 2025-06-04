@@ -420,7 +420,7 @@ const BattleMap = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('../../data/panelists.json');
+                const response = await fetch(`${location.origin}/data/panelists.json`);
                 const data = await response.json();
                 setInfo(data);
 
