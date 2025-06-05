@@ -153,9 +153,10 @@
   ,
   {
     "id": 22,
-    "nome": "Rolf Behrens. Physikalisch-Technische Bundesanstalt (PTB), Braunschweig, Niedersachsen, DE",
+    "nome": "Rolf Behrens. Physikalisch-Technische Bundesanstalt (PTB), Braunschweig, Germany",
     "avatar": "https://raw.githubusercontent.com/ISSSD25/ISSSD25.Github.io/refs/heads/develop/img/img_convidados/behrens.jpeg",
     "descricao": "Dr. R. Behrens",
-    "orcid": "https://orcid.org/0000-0002-4905-7791"
+    "orcid": "https://orcid.org/0000-0002-4905-7791",
+    "site": "https://www.ptb.de/cms/en/ptb/fachabteilungen/abt6/fb-63/information/publications-on-beta-dosimetry.html?type=+%253D"
   }
 ]
